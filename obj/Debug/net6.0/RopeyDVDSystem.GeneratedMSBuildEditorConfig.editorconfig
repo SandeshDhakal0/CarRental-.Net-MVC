@@ -1,0 +1,233 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = RopeyDVDSystem
+build_property.RootNamespace = RopeyDVDSystem
+build_property.ProjectDir = C:\Users\samyu\Downloads\19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari\AppDevCW2_Sample2022\Ropey\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\samyu\Downloads\19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari\AppDevCW2_Sample2022\Ropey
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Actors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Actors/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Actors/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Actors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Actors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0b3JzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Admin/ProfileDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZmlsZURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Authentication/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Authentication/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Authentication/RegisterAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cUmVnaXN0ZXJBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Authentication/RegisterUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cUmVnaXN0ZXJVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Authentication/UnauthorizedAccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cVW5hdXRob3JpemVkQWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Authentication/UserDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cVXNlckRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDCategories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDCategories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDCategories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDCategories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDCategories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDCopies/OlderThan365Days.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEQ29waWVzXE9sZGVyVGhhbjM2NURheXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDTItles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVEl0bGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDTItles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVEl0bGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDTItles/DVDDetailsIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVEl0bGVzXERWRERldGFpbHNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDTItles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVEl0bGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDTItles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVEl0bGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/DVDTItles/UnoccupiedDVDs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVEl0bGVzXFVub2NjdXBpZWREVkRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Issue/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Issue/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXNzdWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Loans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/LoanTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hblR5cGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Members/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Members/InactiveMembers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xJbmFjdGl2ZU1lbWJlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Members/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Producers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Producers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Producers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Producers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Producers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Return/Confirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0dXJuXENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Return/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0dXJuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Shared/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Shared/_CreateItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DcmVhdGVJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Studios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Studios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Studios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Studios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Studios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGlvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samyu/Downloads/19033686 Labbi Karmacharya 19033680 Grisha Giri 19033660 Arsha Jung Thapa 18029505 Abdul Ansari/AppDevCW2_Sample2022/Ropey/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-sbvytgntui
