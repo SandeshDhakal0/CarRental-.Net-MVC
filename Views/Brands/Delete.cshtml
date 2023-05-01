@@ -1,0 +1,80 @@
+﻿@model Brand
+
+@{
+    ViewData["Title"] = "Delete Brand";
+    Layout = "_AdminLayout";
+}
+
+<div class="container-fluid py-4">
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-xl-8 mb-xl-0 mb-4 me-2">
+                <div class="card mb-4" style="width: 45rem;">
+                    <div class="card-header pb-0">
+                        <h4 class="mt-3 mb-2 text-start ms-2 text-primary">Delete Confirmation for @Model.BrandName</h4>
+                    </div>
+                    <div class="card-body px-2 pt-0 pb-2">
+                        <div class="row">
+                            <div class="col">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 d-flex justify-content-start ps-0">
+                                        <div class="d-flex flex-column">
+                                            <p asp-for="BrandName" class="text-dark font-weight-bold text-md ms-4 mt-2 me-1">Full Name:</p>
+                                        </div>
+                                        <div class="p-2 input-group-sm ms-3" style="width: 60%;">
+                                            <input asp-for="BrandName" type="text" class="form-control" readonly/>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 d-flex justify-content-start ps-0">
+                                        <div class="d-flex flex-column">
+                                            <p asp-for="BrandPictureURL" class="text-dark font-weight-bold text-md ms-4 me-2 mt-2">Image Link:</p>
+                                        </div>
+                                        <div class="p-2 input-group-sm ms-1" style=" width: 60%;">
+                                            <input asp-for="BrandPictureURL" type="text" class="form-control" readonly/>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <div class="card ms-6 h-100" style="height: 100%; width: 70%">
+
+                                    <div class="card-body">
+                                        <img id="ProfilePicturePreview" style="max-width: 200px"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm justify-content-center" style="margin-left: 1rem;">
+                                    <a asp-action="Index" class="btn btn-outline-secondary btn-md px-4 py-2">
+                                        Show All
+                                    </a>
+                                </div>
+                                <div class="col-sm justify-content-center mt-1" style="margin-left: 13rem;">
+                                    <form asp-action="Delete">
+                                        <input type="hidden" asp-for="BrandNumber"/>
+                                        <input type="submit" value="Confirm" class="btn btn-primary btn-md px-4 py-2"/>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#BrandPictureURL").val();
+        })
+    </script>
+}

@@ -1,10 +1,10 @@
-﻿@using RopeyDVDSystem.Models.ViewModels
-@model IEnumerable<RopeyDVDSystem.Models.ViewModels.IssueModel>
+﻿@using HamroCarRental.Models.ViewModels
+@model IEnumerable<HamroCarRental.Models.ViewModels.IssueModel>
 @{
-    ViewData["Title"] = "DVD Return";
+    ViewData["Title"] = "car Return";
     Layout = "_AdminLayout";
 
-    var dvdRent = ViewData["LoanRecord"] as IssueModel;
+    var carRent = ViewData["LoanRecord"] as IssueModel;
 
 
     var Issue = new IssueModel();
@@ -23,7 +23,7 @@
 
             <!-- header  -->
             <div class="card-header pb-0">
-                <h4 class="mt-3 text-center text-primary "> Issue DVD</h4>
+                <h4 class="mt-3 text-center text-primary "> Issue car</h4>
 
             </div>
 
@@ -56,9 +56,9 @@
                             <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 px-2">Copy number</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Dvd Titles</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Car Titles</th>
                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-0">Date Released</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-3">DVD Category</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-3">Car Category</th>
                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Age Restricted</th>
                                 <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 col-1"></th>
                             </tr>
@@ -77,13 +77,13 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0 ms-3">@data.DVDTitleName</p>
+                                        <p class="text-xs font-weight-bold mb-0 ms-3">@data.CarModel</p>
                                     </td>
                                     <td>
                                         <p class="text-xs font-weight-bold mb-0 "> @Html.DisplayFor(modelItem => data.DateReleased) </p>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0 ms-2">@data.DVDCategory</p>
+                                        <p class="text-xs font-weight-bold mb-0 ms-2">@data.CarCategory</p>
                                     </td>
 
 

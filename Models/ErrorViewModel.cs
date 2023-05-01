@@ -1,4 +1,4 @@
-namespace RopeyDVDSystem.Models;
+namespace HamroCarRental.Models;
 
 public class ErrorViewModel
 {

@@ -2,5 +2,5 @@
 
 public interface IEntityBase
 {
-    int DVDNumber { get; set; }
+    int CarNumber { get; set; }
 }

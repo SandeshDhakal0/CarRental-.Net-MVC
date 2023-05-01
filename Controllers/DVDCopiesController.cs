@@ -1,90 +1,90 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RopeyDVDSystem.Data;
+using HamroCarRental.Data;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
-public class DVDCopiesController : Controller
+public class carCopiesController : Controller
 {
     //getting database context in the controller
     private readonly ApplicationDbContext _context;
 
     //defining a constructor
-    public DVDCopiesController(ApplicationDbContext context)
+    public carCopiesController(ApplicationDbContext context)
     {
         _context = context;
     }
 
-    //get DVDCopies
+    //get carCopies
     public async Task<IActionResult> Index()
     {
-        var allDVDCopies = await _context.DVDCopies.ToListAsync();
+        var allcarCopies = await _context.carCopies.ToListAsync();
         return View();
     }
 
-    //feature 10: displaying list of DVDCopies older than 365 days and currently not on loan
+    //feature 10: displaying list of carCopies older than 365 days and currently not on loan
     public async Task<IActionResult> OlderThan365Days()
     {
-        //Getting Distinct Copy Numbers of Loaned DVDs
+        //Getting Distinct Copy Numbers of Loaned cars
         var loanedCopy = (from loan in _context.Loans
             where loan.DateReturn == null
             select loan.CopyNumber).Distinct();
 
         //Getting Data of Copies that have not been loaned
-        var notLoanedCopy = from copy in _context.DVDCopies
-            join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
+        var notLoanedCopy = from copy in _context.carCopies
+            join CarDetail in _context.CarDetails on copy.CarNumber equals CarDetail.CarNumber
             where !loanedCopy.Contains(copy.CopyNumber) && copy.IsLoan == false
             select new
             {
                 copy.CopyNumber,
-                DVDTitle = dvdtitle.DVDTitleName,
+                CarDetail = CarDetail.CarModel,
                 copy.DatePurchased
             };
 
         return View(await notLoanedCopy.ToListAsync());
     }
 
-    // GET: DVDCopy/Delete/id
+    // GET: CarCopy/Delete/id
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null) return NotFound();
 
-        var dVDCopyModel = await _context.DVDCopies
-            .Include(d => d.DVDTitle)
+        var CarCopyModel = await _context.carCopies
+            .Include(d => d.CarDetail)
             .FirstOrDefaultAsync(m => m.CopyNumber == id);
-        if (dVDCopyModel == null) return NotFound();
+        if (CarCopyModel == null) return NotFound();
 
-        return View(dVDCopyModel);
+        return View(CarCopyModel);
     }
 
-    // POST: DVDCopy/Delete/id
+    // POST: CarCopy/Delete/id
     [HttpPost]
     [ActionName("Delete")]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        var dVDCopyModel = await _context.DVDCopies.FindAsync(id);
-        _context.DVDCopies.Remove(dVDCopyModel);
+        var CarCopyModel = await _context.carCopies.FindAsync(id);
+        _context.carCopies.Remove(CarCopyModel);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(OlderThan365Days));
     }
 
 
-    //to remove all the older dvd copy from database at once
+    //to remove all the older car copy from database at once
     public async Task<IActionResult> RemoveAll()
     {
-        //Getting Distinct Copy Numbers of Loaned DVDs
+        //Getting Distinct Copy Numbers of Loaned cars
         var loanedCopy = (from loan in _context.Loans
             where loan.DateReturn == null
             select loan.CopyNumber).Distinct();
 
         //Getting Data of Copies that have not been loaned
-        var notLoanedCopy = from copy in _context.DVDCopies
-            join dvdtitle in _context.DVDTitles on copy.DVDNumber equals dvdtitle.DVDNumber
+        var notLoanedCopy = from copy in _context.carCopies
+            join CarDetail in _context.CarDetails on copy.CarNumber equals CarDetail.CarNumber
             where !loanedCopy.Contains(copy.CopyNumber) && copy.IsLoan == false
             select new
             {
                 copy.CopyNumber,
-                DVDTitle = dvdtitle.DVDTitleName,
+                CarDetail = CarDetail.CarModel,
                 copy.DatePurchased
             };
 
@@ -93,10 +93,10 @@ public class DVDCopiesController : Controller
             if (DateTime.Now.Subtract(copy.DatePurchased).Days > 365)
             {
                 //Removing the Copy from the Database if the Copy is older than 365 days.
-                var remove = (from removeCopy in _context.DVDCopies
+                var remove = (from removeCopy in _context.carCopies
                     where removeCopy.CopyNumber == copy.CopyNumber
                     select removeCopy).FirstOrDefault();
-                _context.DVDCopies.Remove(remove);
+                _context.carCopies.Remove(remove);
             }
 
         //Save the changes made to the database.

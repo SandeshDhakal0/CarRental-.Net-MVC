@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RopeyDVDSystem.Models;
+namespace HamroCarRental.Models;
 
 public class Studio
 {
@@ -9,5 +9,5 @@ public class Studio
     [Display(Name = "Studio Name")] public string StudioName { get; set; }
 
     //relationship
-    public ICollection<DVDTitle> DVDTitles { get; set; }
+    public ICollection<CarDetail> CarDetails { get; set; }
 }

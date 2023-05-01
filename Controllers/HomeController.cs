@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using RopeyDVDSystem.Data;
-using RopeyDVDSystem.Models;
-using RopeyDVDSystem.Models.ViewModels;
+using HamroCarRental.Data;
+using HamroCarRental.Models;
+using HamroCarRental.Models.ViewModels;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
 public class HomeController : Controller
 {
@@ -26,17 +26,17 @@ public class HomeController : Controller
         var stockAvailability = HttpContext.Session.GetString("stockAvailability");
         var ageRestricted = HttpContext.Session.GetString("AgeRestricted");
 
-        var databaseDVDList = from dvd in _context.DVDTitles select dvd.DVDNumber;
+        var databasecarList = from car in _context.CarDetails select car.CarNumber;
 
         // checking the age restriction
         switch (ageRestricted)
         {
             case "yes":
-                databaseDVDList = from dvd in databaseDVDList
-                    join dvddt in _context.DVDTitles on dvd equals dvddt.DVDNumber
-                    join dc in _context.DVDCategories on dvddt.CategoryNumber equals dc.CategoryNumber
+                databasecarList = from car in databasecarList
+                    join cardt in _context.CarDetails on car equals cardt.CarNumber
+                    join dc in _context.CarCategories on cardt.CategoryNumber equals dc.CategoryNumber
                     where dc.AgeRestricted == "False"
-                    select dvd;
+                    select car;
                 break;
         }
 
@@ -46,52 +46,52 @@ public class HomeController : Controller
         ViewBag.AgeRestricted = string.IsNullOrEmpty(ageRestricted) ? "no" : ageRestricted;
 
 
-        IEnumerable<HomeDVD> dvdDetails = from allDVD in databaseDVDList
-            join dvd in _context.DVDTitles on allDVD equals dvd.DVDNumber
-            join category in _context.DVDCategories on dvd.CategoryNumber equals category.CategoryNumber
-            select new HomeDVD
+        IEnumerable<Homecar> carDetails = from allcar in databasecarList
+            join car in _context.CarDetails on allcar equals car.CarNumber
+            join category in _context.CarCategories on car.CategoryNumber equals category.CategoryNumber
+            select new Homecar
             {
-                DVDTitleName = dvd.DVDTitleName,
-                DVDPictureURL = dvd.DVDPictureURL,
-                DVDCategory = category.CategoryName,
-                StandardCharge = dvd.StandardCharge,
-                DateReleased = dvd.DateReleased,
-                CastMember = string.Join(", ",
-                    (from castMember in _context.CastMembers
-                        where castMember.DVDNumber == dvd.DVDNumber
-                        select string.Concat(castMember.Actor.ActorFirstName, " ", castMember.Actor.ActorSurname)
-                    ).ToArray()
-                ),
-                AvailableQuantity = _context.DVDCopies.Where(d => d.DVDNumber == dvd.DVDNumber).Count() == 0
+                CarModel = car.CarModel,
+                CarPictureURL = car.CarPictureURL,
+                CarCategory = category.CategoryName,
+                StandardCharge = car.StandardCharge,
+                DateReleased = car.DateReleased,
+                //CastMember = string.Join(", ",
+                //    (from castMember in _context.CastMembers
+                //        where castMember.CarNumber == car.CarNumber
+                //        select string.Concat(castMember.Actor.ActorFirstName, " ", castMember.Actor.ActorSurname)
+                //    ).ToArray()
+                //),
+                AvailableQuantity = _context.carCopies.Where(d => d.CarNumber == car.CarNumber).Count() == 0
                     ? -1
-                    : (from dvdCopy in _context.DVDCopies
-                        where dvdCopy.DVDNumber == dvd.DVDNumber
-                        select dvdCopy.IsLoan ? 0 : 1).Sum()
+                    : (from CarCopy in _context.carCopies
+                        where CarCopy.CarNumber == car.CarNumber
+                        select CarCopy.IsLoan ? 0 : 1).Sum()
             };
 
 
         if (!string.IsNullOrEmpty(searchBarValue))
         {
             ViewBag.searchBarValue = searchBarValue;
-            dvdDetails = dvdDetails.Where(d =>
-                d.CastMember.ToLower().Contains(searchBarValue.ToLower()) ||
-                d.DVDTitleName.ToLower().Contains(searchBarValue.ToLower()));
+            carDetails = carDetails.Where(d =>
+               // d.CastMember.ToLower().Contains(searchBarValue.ToLower()) ||
+                d.CarModel.ToLower().Contains(searchBarValue.ToLower()));
         }
 
         // cases for sorting
         switch (sortingOrderCol)
         {
             case "pa":
-                dvdDetails = dvdDetails.OrderBy(d => d.StandardCharge);
+                carDetails = carDetails.OrderBy(d => d.StandardCharge);
                 break;
 
             case "pd":
-                dvdDetails = dvdDetails.OrderByDescending(d => d.StandardCharge);
+                carDetails = carDetails.OrderByDescending(d => d.StandardCharge);
                 break;
 
 
             default:
-                dvdDetails = dvdDetails.OrderBy(d => d.DVDTitleName);
+                carDetails = carDetails.OrderBy(d => d.CarModel);
                 break;
         }
 
@@ -99,17 +99,45 @@ public class HomeController : Controller
         switch (stockAvailability)
         {
             case "available":
-                dvdDetails = dvdDetails.Where(d => d.AvailableQuantity > 0);
+                carDetails = carDetails.Where(d => d.AvailableQuantity > 0);
                 break;
 
             case "outOfStock":
-                dvdDetails = dvdDetails.Where(d => d.AvailableQuantity == 0);
+                carDetails = carDetails.Where(d => d.AvailableQuantity == 0);
                 break;
         }
 
 
-        return View(dvdDetails);
+        return View(carDetails);
     }
+
+    public IActionResult ProductDetail(string id)
+    {
+        var carDetail = _context.CarDetails.FirstOrDefault(c => c.CarModel == id);
+        if (carDetail == null)
+        {
+            return NotFound();
+        }
+
+        var carCopies = _context.carCopies.Where(cc => cc.CarNumber == carDetail.CarNumber).ToList();
+        var availableCopies = carCopies.Where(cc => !cc.IsLoan).ToList();
+
+        var viewModel = new ProductDetailViewModel
+        {
+            CarModel = carDetail.CarModel,
+            CarPictureURL = carDetail.CarPictureURL,
+            CarCategory = _context.CarCategories.FirstOrDefault(c => c.CategoryNumber == carDetail.CategoryNumber)?.CategoryName,
+            StandardCharge = carDetail.StandardCharge,
+            Description = carDetail.Description,
+            AvailableCopies = availableCopies,
+            TotalCopies = carCopies.Count(),
+            DateReleased = carDetail.DateReleased
+        };
+
+        return View(viewModel);
+    }
+
+
 
 
     [HttpPost]

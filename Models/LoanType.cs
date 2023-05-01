@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RopeyDVDSystem.Models;
+namespace HamroCarRental.Models;
 
 public class LoanType
 {

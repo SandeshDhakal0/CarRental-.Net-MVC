@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RopeyDVDSystem.Models;
+using HamroCarRental.Models;
 
-namespace RopeyDVDSystem.Data.Services;
+namespace HamroCarRental.Data.Services;
 
 public class StudiosService : IStudiosService
 {

@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
-using RopeyDVDSystem.Data;
-using RopeyDVDSystem.Models.ViewModels;
+using HamroCarRental.Data;
+using HamroCarRental.Models.ViewModels;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
 public class ReturnController : Controller
 {
@@ -16,22 +16,22 @@ public class ReturnController : Controller
 
     public IEnumerable<ReturnModel> GetAllLoanRecords()
     {
-        // The DVD copy that are loan list
-        IEnumerable<ReturnModel> loanRecord = from dt in _context.DVDTitles
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        // The car copy that are loan list
+        IEnumerable<ReturnModel> loanRecord = from dt in _context.CarDetails
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             join l in _context.Loans on dc.CopyNumber equals l.CopyNumber
             join m in _context.Members on l.MemberNumber equals m.MemberNumber
             where l.DateReturn == DateTime.MinValue
-            orderby l.DateOut descending, dt.DVDTitleName
+            orderby l.DateOut descending, dt.CarModel
             select new ReturnModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
+                CarModel = dt.CarModel,
                 DateOut = l.DateOut,
                 DateDue = l.DateDue,
                 MemberName = m.MemberFirstName + ' ' + m.MemberLastName,
                 TotalLoan = (from la in _context.Loans
-                    join dc in _context.DVDCopies on l.CopyNumber equals dc.CopyNumber
+                    join dc in _context.carCopies on l.CopyNumber equals dc.CopyNumber
                     where la.DateOut == l.DateOut
                     select la.LoanNumber).Count(),
                 LoanNumber = l.LoanNumber
@@ -46,7 +46,7 @@ public class ReturnController : Controller
         var loanRecord = GetAllLoanRecords();
 
         ViewBag.LoanedCopyNumberList =
-            JsonSerializer.Serialize(_context.DVDCopies.Select(x => x.CopyNumber).Distinct().ToList());
+            JsonSerializer.Serialize(_context.carCopies.Select(x => x.CopyNumber).Distinct().ToList());
 
         return View(loanRecord);
     }
@@ -58,16 +58,16 @@ public class ReturnController : Controller
         string CopyNumber = Request.Form["SearchCopyNumber"];
         ViewBag.SearchCopyNumber = CopyNumber;
 
-        // Get a list of all DVD Copy that are on loan
-        ViewBag.LoanedCopyNumberList = JsonSerializer.Serialize(_context.DVDCopies.Select(x => x.CopyNumber).ToList());
+        // Get a list of all car Copy that are on loan
+        ViewBag.LoanedCopyNumberList = JsonSerializer.Serialize(_context.carCopies.Select(x => x.CopyNumber).ToList());
 
         if (CopyNumber != null &&
             int.TryParse(CopyNumber, out var copyNumber) &&
-            _context.DVDCopies.Where(x => x.CopyNumber == copyNumber).Count() > 0)
+            _context.carCopies.Where(x => x.CopyNumber == copyNumber).Count() > 0)
         {
-            var loanRecord = from dt in _context.DVDTitles
-                join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-                join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+            var loanRecord = from dt in _context.CarDetails
+                join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+                join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
                 join l in _context.Loans on dc.CopyNumber equals l.CopyNumber
                 join m in _context.Members on l.MemberNumber equals m.MemberNumber
                 orderby l.DateOut descending
@@ -75,8 +75,8 @@ public class ReturnController : Controller
                 select new ReturnModel
                 {
                     CopyNumber = dc.CopyNumber,
-                    DVDTitleName = dt.DVDTitleName,
-                    DVDCategory = dtc.CategoryName,
+                    CarModel = dt.CarModel,
+                    CarCategory = dtc.CategoryName,
                     DateOut = l.DateOut,
                     DateDue = l.DateDue,
                     DateReturn = l.DateReturn,
@@ -114,17 +114,17 @@ public class ReturnController : Controller
             return RedirectToAction("Index");
 
         // Get the loan record
-        var currentLoan = (from dt in _context.DVDTitles
-            join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        var currentLoan = (from dt in _context.CarDetails
+            join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             join l in _context.Loans on dc.CopyNumber equals l.CopyNumber
             join m in _context.Members on l.MemberNumber equals m.MemberNumber
             where l.LoanNumber == LoanID
             select new ReturnModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
-                DVDCategory = dtc.CategoryName,
+                CarModel = dt.CarModel,
+                CarCategory = dtc.CategoryName,
                 DateOut = l.DateOut,
                 DateDue = l.DateDue,
                 MemberName = m.MemberFirstName + ' ' + m.MemberLastName,
@@ -146,22 +146,22 @@ public class ReturnController : Controller
     }
 
     [HttpPost]
-    public IActionResult Confirmation(ReturnModel returnDVD)
+    public IActionResult Confirmation(ReturnModel returncar)
     {
-        if (returnDVD.LoanNumber == 0 ||
-            returnDVD.CopyNumber == 0 ||
-            _context.Loans.Where(l => l.LoanNumber == returnDVD.LoanNumber).Count() == 0 ||
-            _context.DVDCopies.Where(dc => dc.CopyNumber == returnDVD.CopyNumber).Count() == 0)
+        if (returncar.LoanNumber == 0 ||
+            returncar.CopyNumber == 0 ||
+            _context.Loans.Where(l => l.LoanNumber == returncar.LoanNumber).Count() == 0 ||
+            _context.carCopies.Where(dc => dc.CopyNumber == returncar.CopyNumber).Count() == 0)
             return RedirectToAction("Index");
 
 
-        var loan = _context.Loans.Find(returnDVD.LoanNumber);
+        var loan = _context.Loans.Find(returncar.LoanNumber);
         loan.DateReturn = DateTime.Today;
-        loan.ReturnAmount = returnDVD.Payment;
+        loan.ReturnAmount = returncar.Payment;
         _context.SaveChanges();
 
 
-        var copy = _context.DVDCopies.Find(returnDVD.CopyNumber);
+        var copy = _context.carCopies.Find(returncar.CopyNumber);
         copy.IsLoan = false;
 
         _context.SaveChanges();

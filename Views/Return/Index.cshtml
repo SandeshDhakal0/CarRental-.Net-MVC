@@ -1,7 +1,7 @@
 ﻿@*Define model*@
 
-@using RopeyDVDSystem.Models.ViewModels
-@model IEnumerable<RopeyDVDSystem.Models.ViewModels.ReturnModel>
+@using HamroCarRental.Models.ViewModels
+@model IEnumerable<HamroCarRental.Models.ViewModels.ReturnModel>
 @{
     ViewData["Title"] = "Return";
     Layout = "_AdminLayout";
@@ -69,7 +69,7 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">DVD Title</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Car Title</th>
                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Copy Number</th>
                                 <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Out</th>
                                 <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Member Name</th>
@@ -84,7 +84,7 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">@data.DVDTitleName</h6>
+                                                <h6 class="mb-0 text-sm">@data.CarModel</h6>
                                             </div>
                                         </div>
                                     </td>
@@ -131,7 +131,7 @@ else if (ReturnDisplay)
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">DVD Title</th>
+                                    <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Car Title</th>
                                     <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-0">Copy Number</th>
                                     <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Member Name</th>
                                     <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Out</th>
@@ -149,7 +149,7 @@ else if (ReturnDisplay)
                                         <div class="d-flex px-2 py-1">
 
                                             <div class="d-flex flex-column justify-content-center mx-2">
-                                                <h6 class="mb-0 text-sm">@Return.DVDTitleName</h6>
+                                                <h6 class="mb-0 text-sm">@Return.CarModel</h6>
                                             </div>
                                         </div>
                                     </td>

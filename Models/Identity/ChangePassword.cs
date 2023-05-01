@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RopeyDVDSystem.Models.Identity;
+namespace HamroCarRental.Models.Identity;
 
 public class ChangePassword
 {

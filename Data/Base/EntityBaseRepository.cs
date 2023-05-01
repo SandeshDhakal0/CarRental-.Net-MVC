@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using RopeyDVDSystem.Data;
+using HamroCarRental.Data;
 
 namespace eTickets.Data.Base;
 
@@ -22,7 +22,7 @@ public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class,
 
     public async Task DeleteAsync(int id)
     {
-        var entity = await _context.Set<T>().FirstOrDefaultAsync(n => n.DVDNumber == id);
+        var entity = await _context.Set<T>().FirstOrDefaultAsync(n => n.CarNumber == id);
         EntityEntry entityEntry = _context.Entry<T>(entity);
         entityEntry.State = EntityState.Deleted;
 
@@ -41,16 +41,16 @@ public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class,
         return await query.ToListAsync();
     }
 
-    public async Task<T> GetDVDTitleAsync(int id)
+    public async Task<T> GetCarDetailAsync(int id)
     {
-        return await _context.Set<T>().FirstOrDefaultAsync(n => n.DVDNumber == id);
+        return await _context.Set<T>().FirstOrDefaultAsync(n => n.CarNumber == id);
     }
 
-    public async Task<T> GetDVDTitleAsync(int id, params Expression<Func<T, object>>[] includeProperties)
+    public async Task<T> GetCarDetailAsync(int id, params Expression<Func<T, object>>[] includeProperties)
     {
         IQueryable<T> query = _context.Set<T>();
         query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
-        return await query.FirstOrDefaultAsync(n => n.DVDNumber == id);
+        return await query.FirstOrDefaultAsync(n => n.CarNumber == id);
     }
 
     public async Task UpdateAsync(int id, T entity)

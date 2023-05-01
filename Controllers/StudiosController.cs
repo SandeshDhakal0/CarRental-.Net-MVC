@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RopeyDVDSystem.Data.Services;
-using RopeyDVDSystem.Models;
+using HamroCarRental.Data.Services;
+using HamroCarRental.Models;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
 public class StudiosController : Controller
 {
@@ -22,7 +22,7 @@ public class StudiosController : Controller
         return View(allStudios);
     }
 
-    //Get: producers/details/id
+    //Get: Brands/details/id
     public async Task<IActionResult> Details(int id)
     {
         var studioDetails = await _service.GetStudioAsync(id);
@@ -31,7 +31,7 @@ public class StudiosController : Controller
         return View(studioDetails);
     }
 
-    //Get: DVDCategories/Create
+    //Get: CarCategories/Create
     public IActionResult Create()
     {
         return View();
@@ -44,7 +44,7 @@ public class StudiosController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    //Get: DVDCategories/edit/id
+    //Get: CarCategories/edit/id
     public async Task<IActionResult> Edit(int id)
     {
         var studioDetails = await _service.GetStudioAsync(id);

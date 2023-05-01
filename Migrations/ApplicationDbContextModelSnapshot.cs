@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RopeyDVDSystem.Data;
+using HamroCarRental.Data;
 
 #nullable disable
 
-namespace RopeyDVDSystem.Migrations
+namespace HamroCarRental.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -155,7 +155,7 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Actor", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Actor", b =>
                 {
                     b.Property<int>("ActorNumber")
                         .ValueGeneratedOnAdd()
@@ -182,22 +182,22 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.CastMember", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CastMember", b =>
                 {
                     b.Property<int>("ActorNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("DVDNumber")
+                    b.Property<int>("CarNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("ActorNumber", "DVDNumber");
+                    b.HasKey("ActorNumber", "CarNumber");
 
-                    b.HasIndex("DVDNumber");
+                    b.HasIndex("CarNumber");
 
                     b.ToTable("CastMembers");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDCategory", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarCategory", b =>
                 {
                     b.Property<int>("CategoryNumber")
                         .ValueGeneratedOnAdd()
@@ -219,10 +219,10 @@ namespace RopeyDVDSystem.Migrations
 
                     b.HasKey("CategoryNumber");
 
-                    b.ToTable("DVDCategories");
+                    b.ToTable("CarCategories");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDCopy", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarCopy", b =>
                 {
                     b.Property<int>("CopyNumber")
                         .ValueGeneratedOnAdd()
@@ -230,7 +230,7 @@ namespace RopeyDVDSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CopyNumber"), 1L, 1);
 
-                    b.Property<int>("DVDNumber")
+                    b.Property<int>("CarNumber")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DatePurchased")
@@ -241,27 +241,27 @@ namespace RopeyDVDSystem.Migrations
 
                     b.HasKey("CopyNumber");
 
-                    b.HasIndex("DVDNumber");
+                    b.HasIndex("CarNumber");
 
-                    b.ToTable("DVDCopies");
+                    b.ToTable("carCopies");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDTitle", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarDetail", b =>
                 {
-                    b.Property<int>("DVDNumber")
+                    b.Property<int>("CarNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DVDNumber"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarNumber"), 1L, 1);
 
                     b.Property<int>("CategoryNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("DVDPictureURL")
+                    b.Property<string>("CarPictureURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DVDTitleName")
+                    b.Property<string>("CarModel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -272,7 +272,7 @@ namespace RopeyDVDSystem.Migrations
                         .HasPrecision(10, 3)
                         .HasColumnType("decimal(10,3)");
 
-                    b.Property<int>("ProducerNumber")
+                    b.Property<int>("BrandNumber")
                         .HasColumnType("int");
 
                     b.Property<decimal>("StandardCharge")
@@ -282,18 +282,18 @@ namespace RopeyDVDSystem.Migrations
                     b.Property<int>("StudioNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("DVDNumber");
+                    b.HasKey("CarNumber");
 
                     b.HasIndex("CategoryNumber");
 
-                    b.HasIndex("ProducerNumber");
+                    b.HasIndex("BrandNumber");
 
                     b.HasIndex("StudioNumber");
 
-                    b.ToTable("DVDTitles");
+                    b.ToTable("CarDetails");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Identity.ApplicationUser", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -361,7 +361,7 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Loan", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Loan", b =>
                 {
                     b.Property<int>("LoanNumber")
                         .ValueGeneratedOnAdd()
@@ -402,7 +402,7 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("Loans");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.LoanType", b =>
+            modelBuilder.Entity("HamroCarRental.Models.LoanType", b =>
                 {
                     b.Property<int>("LoanTypeNumber")
                         .ValueGeneratedOnAdd()
@@ -422,7 +422,7 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("LoanTypes");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Member", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Member", b =>
                 {
                     b.Property<int>("MemberNumber")
                         .ValueGeneratedOnAdd()
@@ -455,7 +455,7 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("Members");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.MembershipCategory", b =>
+            modelBuilder.Entity("HamroCarRental.Models.MembershipCategory", b =>
                 {
                     b.Property<int>("MembershipCategoryNumber")
                         .ValueGeneratedOnAdd()
@@ -479,28 +479,28 @@ namespace RopeyDVDSystem.Migrations
                     b.ToTable("MembershipCategories");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Producer", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Brand", b =>
                 {
-                    b.Property<int>("ProducerNumber")
+                    b.Property<int>("BrandNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProducerNumber"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BrandNumber"), 1L, 1);
 
-                    b.Property<string>("ProducerName")
+                    b.Property<string>("BrandName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProducerPictureURL")
+                    b.Property<string>("BrandPictureURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ProducerNumber");
+                    b.HasKey("BrandNumber");
 
-                    b.ToTable("Producers");
+                    b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Studio", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Studio", b =>
                 {
                     b.Property<int>("StudioNumber")
                         .ValueGeneratedOnAdd()
@@ -528,7 +528,7 @@ namespace RopeyDVDSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.Identity.ApplicationUser", null)
+                    b.HasOne("HamroCarRental.Models.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -537,7 +537,7 @@ namespace RopeyDVDSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.Identity.ApplicationUser", null)
+                    b.HasOne("HamroCarRental.Models.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -552,7 +552,7 @@ namespace RopeyDVDSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RopeyDVDSystem.Models.Identity.ApplicationUser", null)
+                    b.HasOne("HamroCarRental.Models.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -561,100 +561,100 @@ namespace RopeyDVDSystem.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.Identity.ApplicationUser", null)
+                    b.HasOne("HamroCarRental.Models.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.CastMember", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CastMember", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.Actor", "Actor")
+                    b.HasOne("HamroCarRental.Models.Actor", "Actor")
                         .WithMany("CastMembers")
                         .HasForeignKey("ActorNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RopeyDVDSystem.Models.DVDTitle", "DVDTitle")
+                    b.HasOne("HamroCarRental.Models.CarDetail", "CarDetail")
                         .WithMany("CastMembers")
-                        .HasForeignKey("DVDNumber")
+                        .HasForeignKey("CarNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Actor");
 
-                    b.Navigation("DVDTitle");
+                    b.Navigation("CarDetail");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDCopy", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarCopy", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.DVDTitle", "DVDTitle")
-                        .WithMany("DVDCopies")
-                        .HasForeignKey("DVDNumber")
+                    b.HasOne("HamroCarRental.Models.CarDetail", "CarDetail")
+                        .WithMany("carCopies")
+                        .HasForeignKey("CarNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DVDTitle");
+                    b.Navigation("CarDetail");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDTitle", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarDetail", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.DVDCategory", "DVDCategory")
-                        .WithMany("DVDTitles")
+                    b.HasOne("HamroCarRental.Models.CarCategory", "CarCategory")
+                        .WithMany("CarDetails")
                         .HasForeignKey("CategoryNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RopeyDVDSystem.Models.Producer", "Producer")
-                        .WithMany("DVDTitles")
-                        .HasForeignKey("ProducerNumber")
+                    b.HasOne("HamroCarRental.Models.Brand", "Brand")
+                        .WithMany("CarDetails")
+                        .HasForeignKey("BrandNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RopeyDVDSystem.Models.Studio", "Studio")
-                        .WithMany("DVDTitles")
+                    b.HasOne("HamroCarRental.Models.Studio", "Studio")
+                        .WithMany("CarDetails")
                         .HasForeignKey("StudioNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DVDCategory");
+                    b.Navigation("CarCategory");
 
-                    b.Navigation("Producer");
+                    b.Navigation("Brand");
 
                     b.Navigation("Studio");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Loan", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Loan", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.DVDCopy", "DVDCopy")
+                    b.HasOne("HamroCarRental.Models.CarCopy", "CarCopy")
                         .WithMany("Loans")
                         .HasForeignKey("CopyNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RopeyDVDSystem.Models.LoanType", "LoanType")
+                    b.HasOne("HamroCarRental.Models.LoanType", "LoanType")
                         .WithMany("Loans")
                         .HasForeignKey("LoanTypeNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RopeyDVDSystem.Models.Member", "Member")
+                    b.HasOne("HamroCarRental.Models.Member", "Member")
                         .WithMany("Loans")
                         .HasForeignKey("MemberNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DVDCopy");
+                    b.Navigation("CarCopy");
 
                     b.Navigation("LoanType");
 
                     b.Navigation("Member");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Member", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Member", b =>
                 {
-                    b.HasOne("RopeyDVDSystem.Models.MembershipCategory", "MembershipCategory")
+                    b.HasOne("HamroCarRental.Models.MembershipCategory", "MembershipCategory")
                         .WithMany("Members")
                         .HasForeignKey("MemberCategoryNumber")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -663,51 +663,51 @@ namespace RopeyDVDSystem.Migrations
                     b.Navigation("MembershipCategory");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Actor", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Actor", b =>
                 {
                     b.Navigation("CastMembers");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDCategory", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarCategory", b =>
                 {
-                    b.Navigation("DVDTitles");
+                    b.Navigation("CarDetails");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDCopy", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarCopy", b =>
                 {
                     b.Navigation("Loans");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.DVDTitle", b =>
+            modelBuilder.Entity("HamroCarRental.Models.CarDetail", b =>
                 {
                     b.Navigation("CastMembers");
 
-                    b.Navigation("DVDCopies");
+                    b.Navigation("carCopies");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.LoanType", b =>
+            modelBuilder.Entity("HamroCarRental.Models.LoanType", b =>
                 {
                     b.Navigation("Loans");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Member", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Member", b =>
                 {
                     b.Navigation("Loans");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.MembershipCategory", b =>
+            modelBuilder.Entity("HamroCarRental.Models.MembershipCategory", b =>
                 {
                     b.Navigation("Members");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Producer", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Brand", b =>
                 {
-                    b.Navigation("DVDTitles");
+                    b.Navigation("CarDetails");
                 });
 
-            modelBuilder.Entity("RopeyDVDSystem.Models.Studio", b =>
+            modelBuilder.Entity("HamroCarRental.Models.Studio", b =>
                 {
-                    b.Navigation("DVDTitles");
+                    b.Navigation("CarDetails");
                 });
 #pragma warning restore 612, 618
         }

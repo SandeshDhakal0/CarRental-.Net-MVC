@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace RopeyDVDSystem.Migrations
+namespace HamroCarRental.Migrations
 {
     public partial class initial1 : Migration
     {
@@ -65,7 +65,7 @@ namespace RopeyDVDSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DVDCategories",
+                name: "CarCategories",
                 columns: table => new
                 {
                     CategoryNumber = table.Column<int>(type: "int", nullable: false)
@@ -76,7 +76,7 @@ namespace RopeyDVDSystem.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DVDCategories", x => x.CategoryNumber);
+                    table.PrimaryKey("PK_CarCategories", x => x.CategoryNumber);
                 });
 
             migrationBuilder.CreateTable(
@@ -109,17 +109,17 @@ namespace RopeyDVDSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Producers",
+                name: "Brands",
                 columns: table => new
                 {
-                    ProducerNumber = table.Column<int>(type: "int", nullable: false)
+                    BrandNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProducerPictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProducerName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    BrandPictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BrandName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Producers", x => x.ProducerNumber);
+                    table.PrimaryKey("PK_Brands", x => x.BrandNumber);
                 });
 
             migrationBuilder.CreateTable(
@@ -265,37 +265,37 @@ namespace RopeyDVDSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DVDTitles",
+                name: "CarDetails",
                 columns: table => new
                 {
-                    DVDNumber = table.Column<int>(type: "int", nullable: false)
+                    CarNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryNumber = table.Column<int>(type: "int", nullable: false),
                     StudioNumber = table.Column<int>(type: "int", nullable: false),
-                    ProducerNumber = table.Column<int>(type: "int", nullable: false),
-                    DVDPictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DVDTitleName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BrandNumber = table.Column<int>(type: "int", nullable: false),
+                    CarPictureURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CarModel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateReleased = table.Column<DateTime>(type: "datetime2", nullable: false),
                     StandardCharge = table.Column<decimal>(type: "decimal(10,3)", precision: 10, scale: 3, nullable: false),
                     PenaltyCharge = table.Column<decimal>(type: "decimal(10,3)", precision: 10, scale: 3, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DVDTitles", x => x.DVDNumber);
+                    table.PrimaryKey("PK_CarDetails", x => x.CarNumber);
                     table.ForeignKey(
-                        name: "FK_DVDTitles_DVDCategories_CategoryNumber",
+                        name: "FK_CarDetails_CarCategories_CategoryNumber",
                         column: x => x.CategoryNumber,
-                        principalTable: "DVDCategories",
+                        principalTable: "CarCategories",
                         principalColumn: "CategoryNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DVDTitles_Producers_ProducerNumber",
-                        column: x => x.ProducerNumber,
-                        principalTable: "Producers",
-                        principalColumn: "ProducerNumber",
+                        name: "FK_CarDetails_Brands_BrandNumber",
+                        column: x => x.BrandNumber,
+                        principalTable: "Brands",
+                        principalColumn: "BrandNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DVDTitles_Studios_StudioNumber",
+                        name: "FK_CarDetails_Studios_StudioNumber",
                         column: x => x.StudioNumber,
                         principalTable: "Studios",
                         principalColumn: "StudioNumber",
@@ -307,11 +307,11 @@ namespace RopeyDVDSystem.Migrations
                 columns: table => new
                 {
                     ActorNumber = table.Column<int>(type: "int", nullable: false),
-                    DVDNumber = table.Column<int>(type: "int", nullable: false)
+                    CarNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CastMembers", x => new { x.ActorNumber, x.DVDNumber });
+                    table.PrimaryKey("PK_CastMembers", x => new { x.ActorNumber, x.CarNumber });
                     table.ForeignKey(
                         name: "FK_CastMembers_Actors_ActorNumber",
                         column: x => x.ActorNumber,
@@ -319,31 +319,31 @@ namespace RopeyDVDSystem.Migrations
                         principalColumn: "ActorNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CastMembers_DVDTitles_DVDNumber",
-                        column: x => x.DVDNumber,
-                        principalTable: "DVDTitles",
-                        principalColumn: "DVDNumber",
+                        name: "FK_CastMembers_CarDetails_CarNumber",
+                        column: x => x.CarNumber,
+                        principalTable: "CarDetails",
+                        principalColumn: "CarNumber",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DVDCopies",
+                name: "carCopies",
                 columns: table => new
                 {
                     CopyNumber = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DVDNumber = table.Column<int>(type: "int", nullable: false),
+                    CarNumber = table.Column<int>(type: "int", nullable: false),
                     DatePurchased = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsLoan = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DVDCopies", x => x.CopyNumber);
+                    table.PrimaryKey("PK_carCopies", x => x.CopyNumber);
                     table.ForeignKey(
-                        name: "FK_DVDCopies_DVDTitles_DVDNumber",
-                        column: x => x.DVDNumber,
-                        principalTable: "DVDTitles",
-                        principalColumn: "DVDNumber",
+                        name: "FK_carCopies_CarDetails_CarNumber",
+                        column: x => x.CarNumber,
+                        principalTable: "CarDetails",
+                        principalColumn: "CarNumber",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -365,9 +365,9 @@ namespace RopeyDVDSystem.Migrations
                 {
                     table.PrimaryKey("PK_Loans", x => x.LoanNumber);
                     table.ForeignKey(
-                        name: "FK_Loans_DVDCopies_CopyNumber",
+                        name: "FK_Loans_carCopies_CopyNumber",
                         column: x => x.CopyNumber,
-                        principalTable: "DVDCopies",
+                        principalTable: "carCopies",
                         principalColumn: "CopyNumber",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -424,28 +424,28 @@ namespace RopeyDVDSystem.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CastMembers_DVDNumber",
+                name: "IX_CastMembers_CarNumber",
                 table: "CastMembers",
-                column: "DVDNumber");
+                column: "CarNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DVDCopies_DVDNumber",
-                table: "DVDCopies",
-                column: "DVDNumber");
+                name: "IX_carCopies_CarNumber",
+                table: "carCopies",
+                column: "CarNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DVDTitles_CategoryNumber",
-                table: "DVDTitles",
+                name: "IX_CarDetails_CategoryNumber",
+                table: "CarDetails",
                 column: "CategoryNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DVDTitles_ProducerNumber",
-                table: "DVDTitles",
-                column: "ProducerNumber");
+                name: "IX_CarDetails_BrandNumber",
+                table: "CarDetails",
+                column: "BrandNumber");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DVDTitles_StudioNumber",
-                table: "DVDTitles",
+                name: "IX_CarDetails_StudioNumber",
+                table: "CarDetails",
                 column: "StudioNumber");
 
             migrationBuilder.CreateIndex(
@@ -502,7 +502,7 @@ namespace RopeyDVDSystem.Migrations
                 name: "Actors");
 
             migrationBuilder.DropTable(
-                name: "DVDCopies");
+                name: "carCopies");
 
             migrationBuilder.DropTable(
                 name: "LoanTypes");
@@ -511,16 +511,16 @@ namespace RopeyDVDSystem.Migrations
                 name: "Members");
 
             migrationBuilder.DropTable(
-                name: "DVDTitles");
+                name: "CarDetails");
 
             migrationBuilder.DropTable(
                 name: "MembershipCategories");
 
             migrationBuilder.DropTable(
-                name: "DVDCategories");
+                name: "CarCategories");
 
             migrationBuilder.DropTable(
-                name: "Producers");
+                name: "Brands");
 
             migrationBuilder.DropTable(
                 name: "Studios");

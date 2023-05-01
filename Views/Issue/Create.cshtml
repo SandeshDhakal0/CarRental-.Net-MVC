@@ -1,9 +1,9 @@
-﻿@using RopeyDVDSystem.Models.ViewModels
+﻿@using HamroCarRental.Models.ViewModels
 @{
     ViewData["Title"] = "Rental Form";
     Layout = "_AdminLayout";
 
-    var rental = ViewData["AvailableDVD"] as IssueModel;
+    var rental = ViewData["Availablecar"] as IssueModel;
     var memeberList = ViewData["MemberNumberList"] as IEnumerable<SelectViewModel>;
     var loanTypeList = ViewData["LoanTypeList"] as IEnumerable<SelectViewModel>;
 
@@ -31,20 +31,20 @@
                                     <ul class="list-group">
                                         <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
                                             <div class="d-flex flex-column">
-                                                <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Title:</h6>
+                                                <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Car Title:</h6>
                                             </div>
                                             <div class="d-flex text-md ms-6">
-                                                @rental.DVDTitleName
+                                                @rental.CarModel
                                             </div>
                                         </li>
                                     </ul>
                                     <ul class="list-group">
                                         <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
                                             <div class="d-flex flex-column">
-                                                <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Category:</h6>
+                                                <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Car Category:</h6>
                                             </div>
                                             <div class="d-flex text-md ms-4">
-                                                @rental.DVDCategory
+                                                @rental.CarCategory
                                             </div>
                                         </li>
                                     </ul>
@@ -144,7 +144,7 @@
         </div>
     </div>
 </div>
-@if (rentalInfo.DVDTitleName != null)
+@if (rentalInfo.CarModel != null)
 {
     <div class="container-fluid py-4">
 
@@ -159,20 +159,20 @@
                             <ul class="list-group">
                                 <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Title:</h6>
+                                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Car Title:</h6>
                                     </div>
                                     <div class="d-flex text-md ms-6">
-                                        @rentalInfo.DVDTitleName
+                                        @rentalInfo.CarModel
                                     </div>
                                 </li>
                             </ul>
                             <ul class="list-group">
                                 <li class="list-group-item border-0 d-flex justify-content-start ps-0 mb-1 border-radius-lg">
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">DVD Category:</h6>
+                                        <h6 class="mb-1 text-dark font-weight-bold text-md ms-4">Car Category:</h6>
                                     </div>
                                     <div class="d-flex text-md ms-4">
-                                        @rentalInfo.DVDCategory
+                                        @rentalInfo.CarCategory
                                     </div>
                                 </li>
                             </ul>

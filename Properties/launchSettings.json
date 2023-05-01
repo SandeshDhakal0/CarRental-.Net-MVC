@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "RopeyDVDSystem": {
+    "HamroCarRental": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

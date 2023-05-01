@@ -1,10 +1,10 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
-using RopeyDVDSystem.Data;
-using RopeyDVDSystem.Models;
-using RopeyDVDSystem.Models.ViewModels;
+using HamroCarRental.Data;
+using HamroCarRental.Models;
+using HamroCarRental.Models.ViewModels;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
 public class IssueController : Controller
 {
@@ -17,15 +17,15 @@ public class IssueController : Controller
 
     public IEnumerable<IssueModel> GetAllAvailableCopy()
     {
-        IEnumerable<IssueModel> loanRecord = from dt in _context.DVDTitles
-            join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        IEnumerable<IssueModel> loanRecord = from dt in _context.CarDetails
+            join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             where dc.IsLoan == false
             select new IssueModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
-                DVDCategory = dtc.CategoryName,
+                CarModel = dt.CarModel,
+                CarCategory = dtc.CategoryName,
                 AgeRestricted = dtc.AgeRestricted,
                 DateReleased = dt.DateReleased
             };
@@ -36,7 +36,7 @@ public class IssueController : Controller
     {
         var availableCopy = GetAllAvailableCopy();
 
-        ViewBag.AvailableCopyNumberList = JsonSerializer.Serialize(_context.DVDCopies.Where(x => x.IsLoan == false)
+        ViewBag.AvailableCopyNumberList = JsonSerializer.Serialize(_context.carCopies.Where(x => x.IsLoan == false)
             .Select(x => x.CopyNumber).Distinct().ToList());
 
         return View(availableCopy);
@@ -50,22 +50,22 @@ public class IssueController : Controller
         string CopyNumber = Request.Form["SearchCopyNumber"];
         ViewBag.SearchCopyNumber = CopyNumber;
 
-        ViewBag.AvailableCopyNumberList = JsonSerializer.Serialize(_context.DVDCopies.Where(x => x.IsLoan == false)
+        ViewBag.AvailableCopyNumberList = JsonSerializer.Serialize(_context.carCopies.Where(x => x.IsLoan == false)
             .Select(x => x.CopyNumber).Distinct().ToList());
 
         if (CopyNumber != null &&
             int.TryParse(CopyNumber, out var copyNumber) &&
-            _context.DVDCopies.Where(x => x.CopyNumber == copyNumber).Count() > 0)
+            _context.carCopies.Where(x => x.CopyNumber == copyNumber).Count() > 0)
         {
-            var loanRecord = from dt in _context.DVDTitles
-                join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-                join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+            var loanRecord = from dt in _context.CarDetails
+                join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+                join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
                 where dc.IsLoan == false && dc.CopyNumber == copyNumber
                 select new IssueModel
                 {
                     CopyNumber = dc.CopyNumber,
-                    DVDTitleName = dt.DVDTitleName,
-                    DVDCategory = dtc.CategoryName,
+                    CarModel = dt.CarModel,
+                    CarCategory = dtc.CategoryName,
                     AgeRestricted = dtc.AgeRestricted,
                     DateReleased = dt.DateReleased
                 };
@@ -83,19 +83,19 @@ public class IssueController : Controller
 
     public IActionResult Create(int id)
     {
-        if (id == 0 || _context.DVDCopies.Where(l => l.CopyNumber == id && l.IsLoan == false).Count() == 0)
+        if (id == 0 || _context.carCopies.Where(l => l.CopyNumber == id && l.IsLoan == false).Count() == 0)
             return RedirectToAction("Index");
 
 
-        var currentLoan = (from dt in _context.DVDTitles
-            join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        var currentLoan = (from dt in _context.CarDetails
+            join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             where dc.CopyNumber == id
             select new IssueModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
-                DVDCategory = dtc.CategoryName,
+                CarModel = dt.CarModel,
+                CarCategory = dtc.CategoryName,
                 AgeRestricted = dtc.AgeRestricted
             }).First();
 
@@ -104,7 +104,7 @@ public class IssueController : Controller
                 {SelectValue = m.MemberNumber, SelectKey = m.MemberFirstName + " " + m.MemberLastName};
         ViewData["LoanTypeList"] = from lt in _context.LoanTypes
             select new SelectViewModel {SelectValue = lt.LoanTypeNumber, SelectKey = lt.LoanTypeName};
-        ViewData["AvailableDVD"] = currentLoan;
+        ViewData["Availablecar"] = currentLoan;
         ViewBag.CopyNumber = currentLoan.CopyNumber;
         return View();
     }
@@ -115,15 +115,15 @@ public class IssueController : Controller
     {
         var test = rent;
 
-        var currentLoan = (from dt in _context.DVDTitles
-            join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        var currentLoan = (from dt in _context.CarDetails
+            join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             where dc.CopyNumber == rent.CopyNumber
             select new IssueModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
-                DVDCategory = dtc.CategoryName,
+                CarModel = dt.CarModel,
+                CarCategory = dtc.CategoryName,
                 AgeRestricted = dtc.AgeRestricted
             }).First();
 
@@ -132,7 +132,7 @@ public class IssueController : Controller
                 {SelectValue = m.MemberNumber, SelectKey = m.MemberFirstName + " " + m.MemberLastName};
         ViewData["LoanTypeList"] = from lt in _context.LoanTypes
             select new SelectViewModel {SelectValue = lt.LoanTypeNumber, SelectKey = lt.LoanTypeName};
-        ViewData["AvailableDVD"] = currentLoan;
+        ViewData["Availablecar"] = currentLoan;
 
         ViewBag.LoanTypeNumber = rent.LoanTypeNumber;
         ViewBag.MemberNumber = rent.MemberNumber;
@@ -149,9 +149,9 @@ public class IssueController : Controller
         }
 
 
-        var ageRestriction = (from dc in _context.DVDCopies
-            join d in _context.DVDTitles on dc.DVDNumber equals d.DVDNumber
-            join dtc in _context.DVDCategories on d.CategoryNumber equals dtc.CategoryNumber
+        var ageRestriction = (from dc in _context.carCopies
+            join d in _context.CarDetails on dc.CarNumber equals d.CarNumber
+            join dtc in _context.CarCategories on d.CategoryNumber equals dtc.CategoryNumber
             where dc.CopyNumber == rent.CopyNumber
             select dtc.AgeRestricted).First();
 
@@ -181,15 +181,15 @@ public class IssueController : Controller
             where lt.LoanTypeNumber == rent.LoanTypeNumber
             select lt.Duration).First();
 
-        var returnModel = (from dt in _context.DVDTitles
-            join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        var returnModel = (from dt in _context.CarDetails
+            join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             where dc.CopyNumber == rent.CopyNumber
             select new ReturnModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
-                DVDCategory = dtc.CategoryName,
+                CarModel = dt.CarModel,
+                CarCategory = dtc.CategoryName,
                 DateOut = DateTime.Today,
                 DateDue = DateTime.Today.AddDays(loanDays),
                 MemberName = _context.Members.Where(m => m.MemberNumber == rent.MemberNumber).First().MemberFirstName +
@@ -216,7 +216,7 @@ public class IssueController : Controller
             _context.Loans.Add(loan);
 
             // Put the copy status to unavailable
-            var Copy = _context.DVDCopies.Where(c => c.CopyNumber == rent.CopyNumber).First();
+            var Copy = _context.carCopies.Where(c => c.CopyNumber == rent.CopyNumber).First();
             Copy.IsLoan = true;
             _context.SaveChanges();
 

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RopeyDVDSystem.Models;
+namespace HamroCarRental.Models;
 
 public class Loan
 {
@@ -25,6 +25,6 @@ public class Loan
 
     //relationships
     public virtual LoanType LoanType { get; set; }
-    public virtual DVDCopy DVDCopy { get; set; }
+    public virtual CarCopy CarCopy { get; set; }
     public virtual Member Member { get; set; }
 }

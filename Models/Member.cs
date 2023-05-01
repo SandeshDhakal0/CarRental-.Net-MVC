@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RopeyDVDSystem.Models;
+namespace HamroCarRental.Models;
 
 public class Member
 {

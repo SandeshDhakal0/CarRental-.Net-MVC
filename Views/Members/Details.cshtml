@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RopeyDVDSystem.Models.ViewModels.ReturnModel>
+﻿@model IEnumerable<HamroCarRental.Models.ViewModels.ReturnModel>
 
 @{
     ViewData["Title"] = "Member Details";
@@ -88,7 +88,7 @@
                     <tr>
                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-4 col-2">Loan Number</th>
                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Copy Number</th>
-                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ">DVD Title</th>
+                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ">Car Title</th>
                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Out</th>
                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2 ">Date Returned</th>
                     </tr>
@@ -106,7 +106,7 @@
                             <td>
                                 <div class="d-flex px-2 py-1">
                                     <div class="d-flex flex-column justify-content-center">
-                                        <p class="mb-0 text-xs ms-2 font-weight-bold">@loanDetail.DVDTitleName</p>
+                                        <p class="mb-0 text-xs ms-2 font-weight-bold">@loanDetail.CarModel</p>
                                     </div>
                                 </div>
                             </td>

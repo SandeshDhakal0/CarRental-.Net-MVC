@@ -1,4 +1,4 @@
-﻿namespace RopeyDVDSystem.Models.Identity;
+﻿namespace HamroCarRental.Models.Identity;
 
 public static class UserRoles
 {

@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using RopeyDVDSystem.Models;
-using RopeyDVDSystem.Models.Identity;
-using RopeyDVDSystem.Models.ViewModels;
+using HamroCarRental.Models;
+using HamroCarRental.Models.Identity;
+using HamroCarRental.Models.ViewModels;
 
 namespace CourseWorkSampleAuth.Controllers;
 

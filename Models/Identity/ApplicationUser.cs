@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace RopeyDVDSystem.Models.Identity;
+namespace HamroCarRental.Models.Identity;
 
 public class ApplicationUser : IdentityUser
 {

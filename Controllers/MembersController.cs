@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RopeyDVDSystem.Data;
-using RopeyDVDSystem.Models.ViewModels;
+using HamroCarRental.Data;
+using HamroCarRental.Models.ViewModels;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
 public class MembersController : Controller
 {
@@ -94,9 +94,9 @@ public class MembersController : Controller
                 .OrderByDescending(x => x.DateOut).FirstOrDefault().DateOut.ToString("MMM d, yyyy");
         ViewBag.TotalLoans = _context.Loans.Where(x => x.MemberNumber == currentMember.MemberNumber).Count();
 
-        IEnumerable<ReturnModel> loanRecord = from dt in _context.DVDTitles
-            join dtc in _context.DVDCategories on dt.CategoryNumber equals dtc.CategoryNumber
-            join dc in _context.DVDCopies on dt.DVDNumber equals dc.DVDNumber
+        IEnumerable<ReturnModel> loanRecord = from dt in _context.CarDetails
+            join dtc in _context.CarCategories on dt.CategoryNumber equals dtc.CategoryNumber
+            join dc in _context.carCopies on dt.CarNumber equals dc.CarNumber
             join l in _context.Loans on dc.CopyNumber equals l.CopyNumber
             join m in _context.Members on l.MemberNumber equals m.MemberNumber
             orderby l.DateOut descending
@@ -104,8 +104,8 @@ public class MembersController : Controller
             select new ReturnModel
             {
                 CopyNumber = dc.CopyNumber,
-                DVDTitleName = dt.DVDTitleName,
-                DVDCategory = dtc.CategoryName,
+                CarModel = dt.CarModel,
+                CarCategory = dtc.CategoryName,
                 DateOut = l.DateOut,
                 DateDue = l.DateDue,
                 DateReturn = l.DateReturn,
@@ -126,7 +126,7 @@ public class MembersController : Controller
         var membersLoan = (from loans in _context.Loans
             where loans.DateOut >= differenceDate
             select loans.MemberNumber).Distinct();
-        //Get Data of DVD Copies which has not been loaned
+        //Get Data of car Copies which has not been loaned
         var membersNoLoan = from member in _context.Members
             join membership in _context.MembershipCategories on member.MemberCategoryNumber equals membership
                 .MembershipCategoryNumber
@@ -139,14 +139,14 @@ public class MembersController : Controller
                 MemberDOB = member.MemberDateOfBirth.ToString("dd MMM yyyy"),
                 Membership = membership.MembershipCategoryName,
                 LastLoan = (from loan in _context.Loans
-                        join dvdCopy in _context.DVDCopies on loan.CopyNumber equals dvdCopy.CopyNumber
-                        join dvdtitle in _context.DVDTitles on dvdCopy.DVDNumber equals dvdtitle.DVDNumber
+                        join CarCopy in _context.carCopies on loan.CopyNumber equals CarCopy.CopyNumber
+                        join CarDetail in _context.CarDetails on CarCopy.CarNumber equals CarDetail.CarNumber
                         where loan.MemberNumber == member.MemberNumber
                         orderby loan.DateOut descending
                         select new
                         {
                             loan.DateOut,
-                            DVDTitle = dvdtitle.DVDTitleName
+                            CarDetail = CarDetail.CarModel
                         }
                     ).FirstOrDefault()
             };

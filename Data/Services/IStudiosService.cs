@@ -1,6 +1,6 @@
-﻿using RopeyDVDSystem.Models;
+﻿using HamroCarRental.Models;
 
-namespace RopeyDVDSystem.Data.Services;
+namespace HamroCarRental.Data.Services;
 
 public interface IStudiosService
 {

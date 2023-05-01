@@ -1,4 +1,4 @@
-﻿namespace RopeyDVDSystem.Models.ViewModels;
+﻿namespace HamroCarRental.Models.ViewModels;
 
 public class SelectViewModel
 {

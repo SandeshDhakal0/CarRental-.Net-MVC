@@ -3,11 +3,11 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using RopeyDVDSystem.Data;
-using RopeyDVDSystem.Models;
-using RopeyDVDSystem.Models.Identity;
+using HamroCarRental.Data;
+using HamroCarRental.Models;
+using HamroCarRental.Models.Identity;
 
-namespace RopeyDVDSystem.Controllers;
+namespace HamroCarRental.Controllers;
 
 [Authorize]
 public class AdminController : Controller
@@ -30,22 +30,22 @@ public class AdminController : Controller
     {
         var MaximumUnits = 5;
         ViewBag.MemberCount = _context.Members.Count();
-        ViewBag.DVDCount = _context.DVDCopies.Count();
+        ViewBag.carCount = _context.carCopies.Count();
         ViewBag.LoanCount = _context.Loans.Count();
-        ViewBag.ActorCount = _context.Actors.Count();
+       // ViewBag.ActorCount = _context.Actors.Count();
 
-        /*Total DVD based on category  using LinQ and Lambda Expression*/
-        var dvdCategoryCounts = (from dvdTitle in _context.DVDTitles
-                group dvdTitle by dvdTitle.DVDCategory.CategoryName
-                into dvdCategoryGroup
-                select new {Category = dvdCategoryGroup.Key, Count = dvdCategoryGroup.Count()})
+        /*Total car based on category  using LinQ and Lambda Expression*/
+        var CarCategoryCounts = (from CarDetail in _context.CarDetails
+                group CarDetail by CarDetail.CarCategory.CategoryName
+                into CarCategoryGroup
+                select new {Category = CarCategoryGroup.Key, Count = CarCategoryGroup.Count()})
             .OrderBy(x => x.Count).Reverse().Take(MaximumUnits);
 
-        List<string> dVDCategoryLabels = dvdCategoryCounts.Select(x => x.Category).ToList();
-        ViewBag.DVDCategoryLabels = JsonSerializer.Serialize(dVDCategoryLabels);
+        List<string> CarCategoryLabels = CarCategoryCounts.Select(x => x.Category).ToList();
+        ViewBag.CarCategoryLabels = JsonSerializer.Serialize(CarCategoryLabels);
 
-        var dvdCategoryData = dvdCategoryCounts.Select(x => x.Count).ToList();
-        ViewBag.DVDCategoryData = JsonSerializer.Serialize(dvdCategoryData);
+        var CarCategoryData = CarCategoryCounts.Select(x => x.Count).ToList();
+        ViewBag.CarCategoryData = JsonSerializer.Serialize(CarCategoryData);
 
 
         var months = new[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};

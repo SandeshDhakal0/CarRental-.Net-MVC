@@ -1,0 +1,26 @@
+﻿@model HamroCarRental.Models.ViewModels.ProductDetailViewModel
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.CarPictureURL" class="img-fluid rounded mb-3 mb-md-0" alt="@Model.CarModel">
+        </div>
+        <div class="col-md-6">
+            <h1>@Model.CarModel</h1>
+            <h3>@Model.CarCategory</h3>
+            <h4 class="mb-3">@Model.Description</h4>
+            <h4 class="mb-3">Standard Charge: NRS. @Model.StandardCharge</h4>
+            <h4 class="mb-3">Date Released: @Html.DisplayFor(model => model.DateReleased)</h4>
+            @if (Model.AvailableCopies.Count == 0)
+            {
+                <h4 class="mb-3">Out of Stock</h4>
+            }
+            else
+            {
+                <h4 class="mb-3">Available Copies: @Model.AvailableCopies.Count / @Model.TotalCopies</h4>
+            }
+            <a href="/Checkout" class="btn btn-primary">Add to Cart</a>
+
+        </div>
+    </div>
+</div>

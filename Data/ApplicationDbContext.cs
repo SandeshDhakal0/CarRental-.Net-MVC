@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RopeyDVDSystem.Models;
-using RopeyDVDSystem.Models.Identity;
+using HamroCarRental.Models;
+using HamroCarRental.Models.Identity;
 
-namespace RopeyDVDSystem.Data;
+namespace HamroCarRental.Data;
 
 public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 {
@@ -12,48 +12,48 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         Database.EnsureCreated();
     }
 
-    public DbSet<Actor> Actors { get; set; }
-    public DbSet<CastMember> CastMembers { get; set; }
-    public DbSet<DVDCategory> DVDCategories { get; set; }
-    public DbSet<DVDCopy> DVDCopies { get; set; }
-    public DbSet<DVDTitle> DVDTitles { get; set; }
+   // public DbSet<Actor> Actors { get; set; }
+    //public DbSet<CastMember> CastMembers { get; set; }
+    public DbSet<CarCategory> CarCategories { get; set; }
+    public DbSet<CarCopy> carCopies { get; set; }
+    public DbSet<CarDetail> CarDetails { get; set; }
     public DbSet<Loan> Loans { get; set; }
     public DbSet<LoanType> LoanTypes { get; set; }
     public DbSet<Member> Members { get; set; }
     public DbSet<MembershipCategory> MembershipCategories { get; set; }
-    public DbSet<Producer> Producers { get; set; }
+    public DbSet<Brand> Brands { get; set; }
     public DbSet<Studio> Studios { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<CastMember>().HasKey(cm => new
-        {
-            cm.ActorNumber,
-            cm.DVDNumber
-        });
+        //modelBuilder.Entity<CastMember>().HasKey(cm => new
+        //{
+        //    cm.ActorNumber,
+        //    cm.CarNumber
+        //});
 
-        modelBuilder.Entity<CastMember>().HasOne(a => a.Actor).WithMany(cm => cm.CastMembers)
-            .HasForeignKey(a => a.ActorNumber);
-        modelBuilder.Entity<CastMember>().HasOne(a => a.DVDTitle).WithMany(cm => cm.CastMembers)
-            .HasForeignKey(a => a.DVDNumber);
-
-
-        modelBuilder.Entity<DVDCopy>().HasOne(dt => dt.DVDTitle).WithMany(dt => dt.DVDCopies)
-            .HasForeignKey(dt => dt.DVDNumber);
+        //modelBuilder.Entity<CastMember>().HasOne(a => a.Actor).WithMany(cm => cm.CastMembers)
+        //    .HasForeignKey(a => a.ActorNumber);
+        //modelBuilder.Entity<CastMember>().HasOne(a => a.CarDetail).WithMany(cm => cm.CastMembers)
+        //    .HasForeignKey(a => a.CarNumber);
 
 
-        modelBuilder.Entity<DVDTitle>().HasOne(dt => dt.DVDCategory).WithMany(dt => dt.DVDTitles)
+        modelBuilder.Entity<CarCopy>().HasOne(dt => dt.CarDetail).WithMany(dt => dt.carCopies)
+            .HasForeignKey(dt => dt.CarNumber);
+
+
+        modelBuilder.Entity<CarDetail>().HasOne(dt => dt.CarCategory).WithMany(dt => dt.CarDetails)
             .HasForeignKey(dt => dt.CategoryNumber);
-        modelBuilder.Entity<DVDTitle>().HasOne(dt => dt.Producer).WithMany(dt => dt.DVDTitles)
-            .HasForeignKey(dt => dt.ProducerNumber);
-        modelBuilder.Entity<DVDTitle>().HasOne(dt => dt.Studio).WithMany(dt => dt.DVDTitles)
+        modelBuilder.Entity<CarDetail>().HasOne(dt => dt.Brand).WithMany(dt => dt.CarDetails)
+            .HasForeignKey(dt => dt.BrandNumber);
+        modelBuilder.Entity<CarDetail>().HasOne(dt => dt.Studio).WithMany(dt => dt.CarDetails)
             .HasForeignKey(dt => dt.StudioNumber);
 
-        modelBuilder.Entity<DVDTitle>().Property(dt => dt.PenaltyCharge).HasPrecision(10, 3);
-        modelBuilder.Entity<DVDTitle>().Property(dt => dt.StandardCharge).HasPrecision(10, 3);
+        modelBuilder.Entity<CarDetail>().Property(dt => dt.PenaltyCharge).HasPrecision(10, 3);
+        modelBuilder.Entity<CarDetail>().Property(dt => dt.StandardCharge).HasPrecision(10, 3);
 
 
-        modelBuilder.Entity<Loan>().HasOne(dt => dt.DVDCopy).WithMany(dt => dt.Loans)
+        modelBuilder.Entity<Loan>().HasOne(dt => dt.CarCopy).WithMany(dt => dt.Loans)
             .HasForeignKey(dt => dt.CopyNumber);
         modelBuilder.Entity<Loan>().HasOne(dt => dt.LoanType).WithMany(dt => dt.Loans)
             .HasForeignKey(dt => dt.LoanTypeNumber);
@@ -67,7 +67,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         base.OnModelCreating(modelBuilder);
     }
 
-    internal Task GetDVDCategoryAsync(int id)
+    internal Task GetCarCategoryAsync(int id)
     {
         throw new NotImplementedException();
     }

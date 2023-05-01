@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RopeyDVDSystem.Models.ViewModels;
+namespace HamroCarRental.Models.ViewModels;
 
 public class ReturnModel
 {
-    public string? DVDTitleName { get; set; }
+    public string? CarModel { get; set; }
 
-    public string? DVDCategory { get; set; }
+    public string? CarCategory { get; set; }
 
     public int CopyNumber { get; set; }
 

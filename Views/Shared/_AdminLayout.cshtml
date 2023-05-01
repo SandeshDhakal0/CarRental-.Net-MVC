@@ -8,7 +8,7 @@
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - RopeyDVDSystem</title>
+    <title>@ViewData["Title"] - HamroCarRental</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">DVD Section</h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Car Section</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link " asp-controller="Issue" asp-action="Index">
@@ -76,31 +76,31 @@
             
             </li>
             <li class="nav-item">
-                <a class="nav-link " asp-controller="DVDTitles" asp-action="DVDDetailsIndex">
+                <a class="nav-link " asp-controller="CarDetails" asp-action="CarDetailsIndex">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-list-alt text-dark text-sm opacity-8 mb-1"></i>
                     </div>
-                    <span class="nav-link-text ms-1">DVD Details</span>
+                    <span class="nav-link-text ms-1">Car Details</span>
 
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " asp-controller="DVDTItles" asp-action="Create">
+                <a class="nav-link " asp-controller="CarDetails" asp-action="Create">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-plus text-dark text-sm opacity-8 mb-1"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Add DVD</span>
+                    <span class="nav-link-text ms-1">Add Car</span>
 
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " asp-controller="DVDCopies" asp-action="OlderThan365Days">
+                <a class="nav-link " asp-controller="carCopies" asp-action="OlderThan365Days">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-remove text-dark text-sm opacity-8 mb-1"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Old DVD</span>
+                    <span class="nav-link-text ms-1">Old Car</span>
 
                 </a>
             </li>

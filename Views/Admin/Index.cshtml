@@ -13,9 +13,9 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Total DVD </p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Total car </p>
                                 <h5 class="font-weight-bolder text-primary  font-weight-bolder mt-2" ID="StudentCount" runat="server">
-                                    @ViewBag.DVDCount
+                                    @ViewBag.carCount
                                 </h5>
 
                             </div>
@@ -101,9 +101,9 @@
         <div class="col-lg-6 mb-lg-0 mb-4">
             <div class="card z-index-2 h-100">
                 <div class="card-header pb-0 pt-3 bg-transparent">
-                    <h6 class="text-capitalize">The DVD Category</h6>
+                    <h6 class="text-capitalize">The Car Category</h6>
                     <p class="text-sm mb-0">
-                        <span class="text-secondary opacity-6">Total DVD based on Category</span>
+                        <span class="text-secondary opacity-6">Total car based on Category</span>
                     </p>
                 </div>
                 <div class="card-body p-3">
@@ -117,7 +117,7 @@
         <div class="col-lg-6 mb-lg-0 mb-4">
             <div class="card z-index-2 h-100">
                 <div class="card-header pb-0 pt-3 bg-transparent">
-                    <h6 class="text-capitalize">Highest DVD Category</h6>
+                    <h6 class="text-capitalize">Highest Car Category</h6>
                     <p class="text-sm mb-0">
                         <span class="text-secondary opacity-6">Sales for the year <script>document.write(new Date().getFullYear());</script> </span>
                     </p>
@@ -228,7 +228,7 @@
               new Chart(ctx5, {
                 type: "bar",
                 data: {
-                  labels:@Html.Raw(ViewBag.DVDCategoryLabels) ,
+                  labels:@Html.Raw(ViewBag.CarCategoryLabels) ,
                   datasets: [
                     {
                       label: "Sales by Category",
@@ -236,7 +236,7 @@
                       borderWidth: 0,
                       borderRadius: 4,
                       backgroundColor: "#fb793d",
-                      data: @Html.Raw(ViewBag.DVDCategoryData),
+                      data: @Html.Raw(ViewBag.CarCategoryData),
                       fill: false,
                       maxBarThickness: 35
                     }

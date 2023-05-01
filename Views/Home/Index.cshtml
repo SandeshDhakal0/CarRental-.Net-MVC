@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RopeyDVDSystem.Models.ViewModels.HomeDVD>
+﻿@model IEnumerable<HamroCarRental.Models.ViewModels.Homecar>
 
 
 @{
@@ -29,97 +29,21 @@
 }
 
 
-<!-- Slider -->
-<section class="section-slide">
-    <div class="wrap-slick1">
-        <div class="slick1">
-            <div class="item-slick1" style="background-image: url(images/testimages/slide-03.jpg);">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="ltext-101 cl4 respon2 text-dark">
-                                Exclusive Movies Collection
-                            </span>
-                        </div>
 
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="800">
-                            <h2 class="ltext-201 cl4 p-t-19 p-b-43 respon1">
-                                Available Now
-                            </h2>
-                        </div>
-                        @*<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Scroll down for more 
-								</a>
-							</div>*@
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="item-slick1" style="background-image: url(images/testimages/slide-02.jpg);">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="ltext-101 cl4 respon2 text-dark">
-                                Explore Old Times
-                            </span>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="800">
-                            <h2 class="ltext-201 cl4 p-t-19 p-b-43 respon1">
-                                Be Our Member
-                            </h2>
-                        </div>
-                        @*<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Explore 
-								</a>
-							</div>*@
-                    </div>
-                </div>
-            </div>
-
-            <div class="item-slick1" style="background-image: url(images/testimages/slide-01.jpg);">
-                <div class="container h-full">
-                    <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="ltext-101 cl4 respon2 text-dark">
-                                Unlimited DVD
-                            </span>
-                        </div>
-
-                        <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="800">
-                            <h2 class="ltext-201 cl4 p-t-19 p-b-43 respon1">
-                                For Renting
-                            </h2>
-                        </div>
-                        @*<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									Scroll down for more 
-								</a>
-							</div>*@
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <!-- Product -->
 <section class="bg0 p-t-23 p-b-140 mt-5">
     <div class="container">
     <div class="p-b-10">
-        <h4 class="ltext-103 cl5 text-dark ">
-            DVD Overview
+        <h4 class="ltext-103 cl5 text-dark mt-4 ">
+            Available
         </h4>
 
         <form asp-action="PostIndex" id="PostIndexForm">
             <div class="row mt-5 mb-4">
                 <div class="bor17 col-4 mx-3">
-                    <input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="searchBarValue" placeholder="Search by DVD Titles | Actor" value="@ViewBag.searchBarValue"/>
+                    <input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55" type="text" name="searchBarValue" placeholder="Search by Car Titles | Actor" value="@ViewBag.searchBarValue"/>
 
                     <button class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04" type="submit" MaintainScrollPositionOnPostBack="true;">
                         <i class="zmdi zmdi-search"></i>
@@ -166,7 +90,7 @@
 
                         <div class="filter-col2 p-r-15 p-b-27 mx-4">
                             <div class="mtext-102 cl2 p-b-15">
-                                DVD Availibility
+                                car Availibility
                             </div>
 
                             <ul>
@@ -223,21 +147,21 @@
 
 
             <div class="row isotope-grid mt-5">
-                @foreach (var dvd in Model)
+                @foreach (var car in Model)
                 {
                     <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0">
-                                <img class="product-img" src="@dvd.DVDPictureURL" alt="IMG-PRODUCT">
+                                <img class="product-img" src="@car.CarPictureURL" alt="IMG-PRODUCT">
                                 <div class="example-overlay">
-                                    @if (dvd.AvailableQuantity == 0)
+                                    @if (car.AvailableQuantity == 0)
                                     {
                                         <h5>
                                             <span class="badge badge-danger my-2 mr-2">Out of Stock</span>
                                         </h5>
                                     }
-                                    else if (dvd.AvailableQuantity == -1)
+                                    else if (car.AvailableQuantity == -1)
                                     {
                                         <h5>
                                             <span class="badge badge-warning my-2 mr-2">Coming Soon</span>
@@ -246,7 +170,7 @@
                                     else
                                     {
                                         <h5>
-                                            <span class="badge badge-success my-2 mr-2">Quanity : @dvd.AvailableQuantity</span>
+                                            <span class="badge badge-success my-2 mr-2">Quanity : @car.AvailableQuantity</span>
                                         </h5>
                                     }
 
@@ -255,21 +179,26 @@
 
                             <div class="block2-txt flex-w flex-t p-t-14">
                                 <div class="block2-txt-child1 flex-col-l ">
-                                    <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                        @dvd.DVDTitleName
+                                        <a href="" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        @car.CarModel
                                     </a>
 
                                     <span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
-                                        Date Released: @Html.DisplayFor(modelItem => dvd.DateReleased)
+                                        Date Released: @Html.DisplayFor(modelItem => car.DateReleased)
                                     </span>
 
-                                    <span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
-                                        Cast Members: @dvd.CastMember
-                                    </span>
+                                  @*  <span class="stext-118 cl3 trans-04 js-name-b2 p-b-6">
+                                        Cast Members: @car.CastMember
+                                    </span>*@
 
                                     <span class="stext-105 cl3">
-                                        NRS. @dvd.StandardCharge
+                                        NRS. @car.StandardCharge
                                     </span>
+
+                                        <div class="mt-3">
+                                            <a href="@Url.Action("ProductDetail", "Home", new { id = car.CarModel})" class="btn btn-primary">View Details</a>
+                                        </div>
+
 
                                 </div>
                             </div>

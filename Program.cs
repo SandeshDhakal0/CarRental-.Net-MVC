@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using RopeyDVDSystem.Data;
-using RopeyDVDSystem.Data.Services;
-using RopeyDVDSystem.Models.Identity;
+using HamroCarRental.Data;
+using HamroCarRental.Data.Services;
+using HamroCarRental.Models.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -25,11 +25,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.AddScoped<IActorsService, ActorsService>();
-builder.Services.AddScoped<IDVDCategoriesService, DVDCategoriesService>();
+//builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<ICarCategoriesService, CarCategoriesService>();
 builder.Services.AddScoped<IStudiosService, StudiosService>();
-builder.Services.AddScoped<IProducersService, ProducersService>();
-builder.Services.AddScoped<IDVDTitlesService, DVDTitlesService>();
+builder.Services.AddScoped<IBrandsService, BrandsService>();
+builder.Services.AddScoped<ICarDetailsService, CarDetailsService>();
 
 
 // Adding Authentication
@@ -91,7 +91,7 @@ app.MapControllerRoute(
 
 // Seed database
 ApplicationDBInitializer.SeedUsersAndRolesAsync(app).Wait();
-ApplicationDBInitializer.Seed(app);
+//ApplicationDBInitializer.Seed(app);
 
 
 app.Run();
