@@ -1,40 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using HamroCarRental.Models;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace HamroCarRental.ViewModels
+namespace HamroCarRental.Models.ViewModels;
+
+public class Homecar
 {
-    public class LoanViewModel
-    {
-        public int LoanNumber { get; set; }
+    public string? CarModel { get; set; }
 
-        [Display(Name = "Loan Type")]
-        public int LoanTypeNumber { get; set; }
+    public string? CarPictureURL { get; set; }
 
-        [Display(Name = "Car Copy")]
-        public int CopyNumber { get; set; }
+    public string? CarCategory { get; set; }
 
-        [Display(Name = "Member")]
-        public int MemberNumber { get; set; }
+    //public string? CastMember { get; set; }
 
-        [Display(Name = "Date Out")]
-        [DataType(DataType.Date)]
-        public DateTime DateOut { get; set; }
+    public decimal StandardCharge { get; set; }
 
-        [Display(Name = "Date Due")]
-        [DataType(DataType.Date)]
-        public DateTime DateDue { get; set; }
+    [DisplayFormat(DataFormatString = "{0:MMM d, yyyy}")]
+    public DateTime DateReleased { get; set; }
 
-        [Display(Name = "Date Return")]
-        [DataType(DataType.Date)]
-        public DateTime DateReturn { get; set; }
+    public int AvailableQuantity { get; set; }
 
-        [Display(Name = "Return Amount")]
-        public decimal ReturnAmount { get; set; }
-
-        public List<LoanType> LoanTypes { get; set; }
-        public List<CarCopy> CarCopies { get; set; }
-        public List<Member> Members { get; set; }
-    }
+    public string? CarType { get; set; }
 }
