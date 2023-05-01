@@ -80,7 +80,7 @@ public class AuthenticationController : Controller
                 });
 
 
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Index", "Home");
         }
 
         TempData["Error"] = "Invalid credentials. Try again!";

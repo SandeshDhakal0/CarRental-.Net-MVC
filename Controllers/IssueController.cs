@@ -207,7 +207,7 @@ public class IssueController : Controller
             {
                 CopyNumber = rent.CopyNumber,
                 MemberNumber = rent.MemberNumber,
-                LoanTypeNumber = rent.LoanTypeNumber,
+                //LoanTypeNumber = rent.LoanTypeNumber,
                 DateOut = DateTime.Today,
                 DateDue = DateTime.Today.AddDays(loanDays),
                 DateReturn = DateTime.MinValue,

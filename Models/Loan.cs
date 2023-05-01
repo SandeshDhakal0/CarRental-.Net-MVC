@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HamroCarRental.Models;
@@ -7,13 +8,15 @@ public class Loan
 {
     [Key] public int LoanNumber { get; set; }
 
-    [ForeignKey("LoanTypeNumber")] public int LoanTypeNumber { get; set; }
+   // [ForeignKey("LoanTypeNumber")] public int LoanTypeNumber { get; set; }
 
     [Display(Name = "Copy Number")]
     [ForeignKey("CopyNumber")]
     public int CopyNumber { get; set; }
 
     [ForeignKey("MemberNumber")] public int MemberNumber { get; set; }
+
+    [Display(Name ="Date In")] public DateTime DateIn { get; set; }
 
     [Display(Name = "Date Out")] public DateTime DateOut { get; set; }
 
@@ -24,7 +27,7 @@ public class Loan
     [Display(Name = "Return Amount")] public decimal ReturnAmount { get; set; }
 
     //relationships
-    public virtual LoanType LoanType { get; set; }
+   // public virtual LoanType LoanType { get; set; }
     public virtual CarCopy CarCopy { get; set; }
     public virtual Member Member { get; set; }
 }

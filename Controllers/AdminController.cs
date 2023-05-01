@@ -9,7 +9,7 @@ using HamroCarRental.Models.Identity;
 
 namespace HamroCarRental.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Manager, Assistant")]
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;

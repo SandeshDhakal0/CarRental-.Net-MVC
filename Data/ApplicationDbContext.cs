@@ -55,8 +55,8 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
         modelBuilder.Entity<Loan>().HasOne(dt => dt.CarCopy).WithMany(dt => dt.Loans)
             .HasForeignKey(dt => dt.CopyNumber);
-        modelBuilder.Entity<Loan>().HasOne(dt => dt.LoanType).WithMany(dt => dt.Loans)
-            .HasForeignKey(dt => dt.LoanTypeNumber);
+        //modelBuilder.Entity<Loan>().HasOne(dt => dt.LoanType).WithMany(dt => dt.Loans)
+        //    .HasForeignKey(dt => dt.LoanTypeNumber);
         modelBuilder.Entity<Loan>().HasOne(dt => dt.Member).WithMany(dt => dt.Loans)
             .HasForeignKey(dt => dt.MemberNumber);
         modelBuilder.Entity<Loan>().Property(dt => dt.ReturnAmount).HasPrecision(10, 3);

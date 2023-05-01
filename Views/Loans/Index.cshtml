@@ -17,7 +17,7 @@
             <tr>
                 <th>@Html.DisplayNameFor(model => model.Member.MemberFirstName)</th>
                 <th>@Html.DisplayNameFor(model => model.Member.MemberLastName)</th>
-                <th>@Html.DisplayNameFor(model => model.LoanType.LoanTypeName)</th>
+                @*<th>@Html.DisplayNameFor(model => model.LoanType.LoanTypeName)</th>*@
                 <th>@Html.DisplayNameFor(model => model.CopyNumber)</th>
                 <th>@Html.DisplayNameFor(model => model.DateOut)</th>
                 <th>@Html.DisplayNameFor(model => model.DateDue)</th>
@@ -35,9 +35,9 @@
                     <td class="align-middle">
                         @Html.DisplayFor(modelItem => item.Member.MemberLastName)
                     </td>
-                    <td class="align-middle">
+                  @*  <td class="align-middle">
                         @Html.DisplayFor(modelItem => item.LoanType.LoanTypeName)
-                    </td>
+                    </td>*@
                     <td class="align-middle">
                         @Html.DisplayFor(modelItem => item.CopyNumber)
                     </td>

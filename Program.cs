@@ -88,6 +88,13 @@ app.MapControllerRoute(
     "default",
     "{controller=Home}/{action=Index}/{id?}");
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "loan",
+        pattern: "loan/checkout/{productId}",
+        defaults: new { controller = "Loan", action = "Checkout" });
+});
 
 // Seed database
 ApplicationDBInitializer.SeedUsersAndRolesAsync(app).Wait();

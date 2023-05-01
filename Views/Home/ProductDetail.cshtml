@@ -19,8 +19,17 @@
             {
                 <h4 class="mb-3">Available Copies: @Model.AvailableCopies.Count / @Model.TotalCopies</h4>
             }
-            <a href="/Checkout" class="btn btn-primary">Add to Cart</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="#" class="btn btn-primary">Checkout</a>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Authentication")" class="btn btn-primary">Login to Checkout</a>
+            }
+
 
         </div>
     </div>
 </div>
+

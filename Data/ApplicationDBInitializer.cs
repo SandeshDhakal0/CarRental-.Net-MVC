@@ -6,6 +6,14 @@ namespace HamroCarRental.Data;
 
 public class ApplicationDBInitializer
 {
+    public static class UserRoles
+    {
+        public const string Admin = "Admin";
+        public const string Manager = "Manager";
+        public const string Assistant = "Assistant";
+    }
+
+
     public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
     {
         using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
@@ -18,6 +26,7 @@ public class ApplicationDBInitializer
 
             if (!await roleManager.RoleExistsAsync(UserRoles.Assistant))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.Assistant));
+
 
             // Users
             var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();

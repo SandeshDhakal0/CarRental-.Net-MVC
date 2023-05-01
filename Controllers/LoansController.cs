@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using HamroCarRental.Data;
 using HamroCarRental.Models.ViewModels;
 using HamroCarRental.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HamroCarRental.Controllers;
 
@@ -19,10 +20,8 @@ public class LoansController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var allLoans = await _context.Loans.Include(n => n.Member).Include(n => n.LoanType).ToListAsync();
+        var allLoans = await _context.Loans.Include(n => n.Member).ToListAsync();
         return View(allLoans);
     }
-
-
 
 }
