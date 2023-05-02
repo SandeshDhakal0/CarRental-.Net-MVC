@@ -2226,8 +2226,8 @@ fieldset[disabled] a.btn {
 
 .btn-warning {
     color: #111;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-warning:hover {
@@ -2241,8 +2241,8 @@ fieldset[disabled] a.btn {
 }
 
 .btn-warning.disabled, .btn-warning:disabled {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-warning:active, .btn-warning.active,
@@ -2453,16 +2453,16 @@ fieldset[disabled] a.btn {
 }
 
 .btn-outline-warning {
-    color: #ffc107;
+    color: #a689e1;
     background-color: transparent;
     background-image: none;
-    border-color: #ffc107;
+    border-color: #a689e1;
 }
 
 .btn-outline-warning:hover {
     color: #fff;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-outline-warning:focus, .btn-outline-warning.focus {
@@ -2470,15 +2470,15 @@ fieldset[disabled] a.btn {
 }
 
 .btn-outline-warning.disabled, .btn-outline-warning:disabled {
-    color: #ffc107;
+    color: #a689e1;
     background-color: transparent;
 }
 
 .btn-outline-warning:active, .btn-outline-warning.active,
 .show > .btn-outline-warning.dropdown-toggle {
     color: #fff;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-outline-danger {
@@ -4200,7 +4200,7 @@ tbody.collapse.show {
 
 .badge-warning {
     color: #111;
-    background-color: #ffc107;
+    background-color: #a689e1;
 }
 
 .badge-warning[href]:focus, .badge-warning[href]:hover {
@@ -5429,7 +5429,7 @@ a.bg-info:focus, a.bg-info:hover {
 }
 
 .bg-warning {
-    background-color: #ffc107 !important;
+    background-color: #a689e1 !important;
 }
 
 a.bg-warning:focus, a.bg-warning:hover {
@@ -5509,7 +5509,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .border-warning {
-    border-color: #ffc107 !important;
+    border-color: #a689e1 !important;
 }
 
 .border-danger {
@@ -8814,7 +8814,7 @@ a.text-info:focus, a.text-info:hover {
 }
 
 .text-warning {
-    color: #ffc107 !important;
+    color: #a689e1 !important;
 }
 
 a.text-warning:focus, a.text-warning:hover {

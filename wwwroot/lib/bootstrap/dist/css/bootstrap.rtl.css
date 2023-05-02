@@ -12,7 +12,7 @@
     --bs-pink: #d63384;
     --bs-red: #dc3545;
     --bs-orange: #fd7e14;
-    --bs-yellow: #ffc107;
+    --bs-yellow: #a689e1;
     --bs-green: #198754;
     --bs-teal: #20c997;
     --bs-cyan: #0dcaf0;
@@ -32,7 +32,7 @@
     --bs-secondary: #6c757d;
     --bs-success: #198754;
     --bs-info: #0dcaf0;
-    --bs-warning: #ffc107;
+    --bs-warning: #a689e1;
     --bs-danger: #dc3545;
     --bs-light: #f8f9fa;
     --bs-dark: #212529;
@@ -3242,8 +3242,8 @@ textarea.form-control-lg {
 
 .btn-warning {
     color: #000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-warning:hover {
@@ -3271,8 +3271,8 @@ textarea.form-control-lg {
 
 .btn-warning:disabled, .btn-warning.disabled {
     color: #000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-danger {
@@ -3501,14 +3501,14 @@ textarea.form-control-lg {
 }
 
 .btn-outline-warning {
-    color: #ffc107;
-    border-color: #ffc107;
+    color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-outline-warning:hover {
     color: #000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-check:focus + .btn-outline-warning, .btn-outline-warning:focus {
@@ -3517,8 +3517,8 @@ textarea.form-control-lg {
 
 .btn-check:checked + .btn-outline-warning, .btn-check:active + .btn-outline-warning, .btn-outline-warning:active, .btn-outline-warning.active, .btn-outline-warning.dropdown-toggle.show {
     color: #000;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #a689e1;
+    border-color: #a689e1;
 }
 
 .btn-check:checked + .btn-outline-warning:focus, .btn-check:active + .btn-outline-warning:focus, .btn-outline-warning:active:focus, .btn-outline-warning.active:focus, .btn-outline-warning.dropdown-toggle.show:focus {
@@ -3526,7 +3526,7 @@ textarea.form-control-lg {
 }
 
 .btn-outline-warning:disabled, .btn-outline-warning.disabled {
-    color: #ffc107;
+    color: #a689e1;
     background-color: transparent;
 }
 
@@ -6979,7 +6979,7 @@ textarea.form-control-lg {
 }
 
 .link-warning {
-    color: #ffc107;
+    color: #a689e1;
 }
 
 .link-warning:hover, .link-warning:focus {
@@ -7431,7 +7431,7 @@ textarea.form-control-lg {
 }
 
 .border-warning {
-    border-color: #ffc107 !important;
+    border-color: #a689e1 !important;
 }
 
 .border-danger {

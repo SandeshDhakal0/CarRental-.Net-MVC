@@ -24,4 +24,24 @@ public class LoansController : Controller
         return View(allLoans);
     }
 
-}
+
+    //[HttpPost]
+    //public IActionResult Checkout(CheckoutViewModel model)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        // Create a new loan object and populate it with the data from the view model
+    //        Loan loan = new Loan
+    //        {
+    //            //MemberNumber = model.MemberNumber,
+    //            //CopyNumber = model.CopyNumber,
+    //            DateOut = model.DateOut,
+    //            DateDue = model.DateDue,
+    //            DateReturn = model.DateReturn,
+    //            ReturnAmount = model.ReturnAmount
+    //        };
+
+    //        return View(model);
+    //    }
+    }
+    
