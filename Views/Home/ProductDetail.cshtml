@@ -21,7 +21,7 @@
             }
             @if (User.Identity.IsAuthenticated)
             {
-                <a href="@Url.Action("Checkout", "Loan", new { copyNumber = Model.CarNumber })" class="btn btn-secondary">Checkout</a>
+                <a href="@Url.Action("Checkout", "Loan", new { copyNumber = Model.CarModel })" class="btn btn-secondary">Checkout</a>
             }
             else
             {

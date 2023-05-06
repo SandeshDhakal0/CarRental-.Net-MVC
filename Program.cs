@@ -96,6 +96,15 @@ app.UseEndpoints(endpoints =>
         defaults: new { controller = "Loan", action = "Checkout" });
 });
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "productDetail",
+        pattern: "Home/ProductDetail/{carNumber}",
+        defaults: new { controller = "Home", action = "ProductDetail" });
+});
+
+
 // Seed database
 ApplicationDBInitializer.SeedUsersAndRolesAsync(app).Wait();
 //ApplicationDBInitializer.Seed(app);

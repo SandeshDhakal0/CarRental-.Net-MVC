@@ -23,6 +23,7 @@ public sealed class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<MembershipCategory> MembershipCategories { get; set; }
     public DbSet<Brand> Brands { get; set; }
     public DbSet<Studio> Studios { get; set; }
+    public object CarDetail { get; internal set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

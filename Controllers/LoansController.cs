@@ -24,24 +24,58 @@ public class LoansController : Controller
         return View(allLoans);
     }
 
+    public IActionResult Checkout(int copyNumber)
+    {
+        // Get the car copy by the copy number
+        var carCopy = _context.carCopies
+            .Include(cc => cc.CarNumber)
+            .FirstOrDefault(cc => cc.CopyNumber == copyNumber);
 
-    //[HttpPost]
-    //public IActionResult Checkout(CheckoutViewModel model)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        // Create a new loan object and populate it with the data from the view model
-    //        Loan loan = new Loan
-    //        {
-    //            //MemberNumber = model.MemberNumber,
-    //            //CopyNumber = model.CopyNumber,
-    //            DateOut = model.DateOut,
-    //            DateDue = model.DateDue,
-    //            DateReturn = model.DateReturn,
-    //            ReturnAmount = model.ReturnAmount
-    //        };
+        if (carCopy == null)
+        {
+            return NotFound();
+        }
 
-    //        return View(model);
-    //    }
+        // Create a new loan object
+        var loan = new Loan
+        {
+            CopyNumber = carCopy.CopyNumber,
+            CarCopy = carCopy,
+            DateOut = DateTime.Now,
+            DateDue = DateTime.Now.AddDays(7) // Due date is 7 days from now
+        };
+
+        return View(loan);
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Checkout([Bind("CopyNumber,MemberNumber,DateDue")] Loan loan)
+    {
+        if (ModelState.IsValid)
+        {
+            // Update the loan information
+            loan.DateOut = DateTime.Now;
+
+            // Get the car copy by the copy number
+            var carCopy = _context.carCopies.FirstOrDefault(cc => cc.CopyNumber == loan.CopyNumber);
+
+            if (carCopy == null)
+            {
+                return NotFound();
+            }
+
+            carCopy.AvailableQuantity = 0; // Mark the car copy as not available
+
+            // Add the loan to the database
+            _context.Add(loan);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(loan);
+    }
+}
+
     

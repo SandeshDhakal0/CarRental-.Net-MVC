@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using HamroCarRental.Data;
 using HamroCarRental.Models;
 using HamroCarRental.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace HamroCarRental.Controllers;
 
@@ -51,17 +52,12 @@ public class HomeController : Controller
             join category in _context.CarCategories on car.CategoryNumber equals category.CategoryNumber
             select new Homecar
             {
+                CarNumber = car.CarNumber,
                 CarModel = car.CarModel,
                 CarPictureURL = car.CarPictureURL,
                 CarCategory = category.CategoryName,
                 StandardCharge = car.StandardCharge,
                 DateReleased = car.DateReleased,
-                //CastMember = string.Join(", ",
-                //    (from castMember in _context.CastMembers
-                //        where castMember.CarNumber == car.CarNumber
-                //        select string.Concat(castMember.Actor.ActorFirstName, " ", castMember.Actor.ActorSurname)
-                //    ).ToArray()
-                //),
                 AvailableQuantity = _context.carCopies.Where(d => d.CarNumber == car.CarNumber).Count() == 0
                     ? -1
                     : (from CarCopy in _context.carCopies
@@ -111,9 +107,9 @@ public class HomeController : Controller
         return View(carDetails);
     }
 
-    public IActionResult ProductDetail(string id)
+    public IActionResult ProductDetail(int id)
     {
-        var carDetail = _context.CarDetails.FirstOrDefault(c => c.CarModel == id);
+        var carDetail = _context.CarDetails.FirstOrDefault(c => c.CarNumber == id);
         if (carDetail == null)
         {
             return NotFound();
@@ -140,6 +136,13 @@ public class HomeController : Controller
 
 
 
+
+
+
+
+
+
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult PostIndex()
@@ -159,4 +162,9 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
     }
+
+
+  
+
+
 }

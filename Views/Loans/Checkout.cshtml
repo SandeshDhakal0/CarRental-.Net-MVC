@@ -1,44 +1,35 @@
-﻿@model HamroCarRental.Models.ViewModels.CheckoutViewModel
+﻿@model HamroCarRental.Models.Loan
 
-@using (Html.BeginForm("Checkout", "Loans", FormMethod.Post))
-{
-   @* <div class="form-group">
-        @Html.LabelFor(model => model.MemberNumber, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.MemberNumber, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.MemberNumber, "", new { @class = "text-danger" })
+<div class="container py-5">
+    <h1>Checkout</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.CarDetail.CarPictureURL" class="img-fluid rounded mb-3 mb-md-0" alt="@Model.CarDetail.CarModel">
+        </div>
+        <div class="col-md-6">
+            <h3>@Model.CarDetail.CarModel</h3>
+            <h4>@Model.CarDetail.CarCategory</h4>
+            <p>@Model.CarDetail.Description</p>
+            <h5>Standard Charge: NRS. @Model.CarDetail.StandardCharge</h5>
+            <h5>Date Released: @Html.DisplayFor(model => model.CarDetail.DateReleased)</h5>
+            <hr>
+            <form method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label for="MemberNumber">Member Number</label>
+                    <input type="text" class="form-control" id="MemberNumber" name="MemberNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="DateOut">Date Out</label>
+                    <input type="date" class="form-control" id="DateOut" name="DateOut" required>
+                </div>
+                <div class="form-group">
+                    <label for="DateDue">Date Due</label>
+                    <input type="date" class="form-control" id="DateDue" name="DateDue" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </form>
+        </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.CopyNumber, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.CopyNumber, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.CopyNumber, "", new { @class = "text-danger" })
-    </div>*@
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DateOut, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.DateOut, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.DateOut, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DateDue, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.DateDue, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.DateDue, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.DateReturn, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.DateReturn, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.DateReturn, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ReturnAmount, htmlAttributes: new { @class = "control-label" })
-        @Html.EditorFor(model => model.ReturnAmount, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.ReturnAmount, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Checkout" class="btn btn-primary" />
-    </div>
-}
+</div>

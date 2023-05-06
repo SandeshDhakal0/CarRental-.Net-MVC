@@ -6,6 +6,8 @@ namespace HamroCarRental.Models;
 
 public class CarDetail : IEntityBase
 {
+    [Key] public int CarNumber { get; set; }
+
     [Display(Name = "Category Number")]
     [ForeignKey("CategoryNumber")]
     public int CategoryNumber { get; set; }
@@ -36,6 +38,5 @@ public class CarDetail : IEntityBase
     //public ICollection<CastMember> CastMembers { get; set; }
     public ICollection<CarCopy> carCopies { get; set; }
 
-    [Key] public int CarNumber { get; set; }
     public string Description { get; internal set; }
 }

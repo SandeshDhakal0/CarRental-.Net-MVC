@@ -30,4 +30,5 @@ public class Loan
    // public virtual LoanType LoanType { get; set; }
     public virtual CarCopy CarCopy { get; set; }
     public virtual Member Member { get; set; }
+    public virtual CarDetail CarDetail { get; set; }
 }
